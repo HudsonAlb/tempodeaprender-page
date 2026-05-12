@@ -1,0 +1,32 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-brand-dark antialiased;
+  }
+
+  /* Foco visível — verde do uniforme para contraste adequado */
+  :focus-visible {
+    outline: 2px solid #1E7E34;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer utilities {
+  /* Área mínima de toque 44x44px (WCAG 2.5.5) */
+  .tap-target {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
