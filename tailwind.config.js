@@ -10,7 +10,7 @@ export default {
         brand: {
           /* Azul claro — PRIMÁRIO (corpo do uniforme) */
           sky:        '#5DADE2',
-          'sky-mid':  '#3498DB',
+          'sky-mid':  '#2471A3',
           'sky-light':'#D6EAF8',
           'sky-pale': '#EBF5FB',
 
@@ -25,7 +25,7 @@ export default {
           'green-light':'#D4EDDA',
 
           /* Laranja — detalhe (listras do uniforme) */
-          orange:        '#C85A00',
+          orange:        '#A84800',
           'orange-mid':  '#E96A00',
           'orange-light':'#FDE8D0',
 

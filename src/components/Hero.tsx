@@ -87,7 +87,7 @@ export default function Hero() {
           <h1
             id="hero-heading"
             className={[
-              'font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg transition-all duration-700',
+              'font-display font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white leading-tight drop-shadow-lg transition-all duration-700',
               entered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6',
             ].join(' ')}
             style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '350ms' }}
@@ -138,7 +138,7 @@ export default function Hero() {
           >
             <Link
               to="/contato"
-              className="tap-target inline-flex items-center px-8 rounded-xl bg-brand-sky text-white font-display font-bold text-base hover:bg-brand-sky-mid transition-colors shadow-lg shadow-brand-navy/40"
+              className="tap-target inline-flex items-center px-8 rounded-xl bg-brand-sky-mid text-white font-display font-bold text-base hover:bg-brand-navy transition-colors shadow-lg shadow-brand-navy/40"
               aria-label="Garantir vaga — ir para o formulário de contato"
             >
               Garantir vaga

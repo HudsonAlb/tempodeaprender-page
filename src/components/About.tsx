@@ -21,11 +21,11 @@ export default function About() {
 
   return (
     <section id="sobre" aria-labelledby="about-heading" className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-20 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Grade de fotos — slide in from left */}
         <div
           ref={photosRef}
-          className={`reveal grid grid-cols-2 gap-3 ${photosVisible ? 'visible' : ''}`}
+          className={`reveal grid grid-cols-1 sm:grid-cols-2 gap-3 ${photosVisible ? 'visible' : ''}`}
         >
           {PHOTOS.map(({ src, alt, caption, span, height }, i) => (
             <div

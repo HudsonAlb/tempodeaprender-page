@@ -26,11 +26,11 @@ export default function HomePage() {
       <Hero />
 
       {/* Seção de destaque rápido */}
-      <section className="py-20 bg-white">
+      <section className="py-12 sm:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div
             ref={statsRef}
-            className={`reveal grid md:grid-cols-3 gap-10 ${statsVisible ? 'visible' : ''}`}
+            className={`reveal grid md:grid-cols-3 gap-6 md:gap-10 ${statsVisible ? 'visible' : ''}`}
           >
             {QUICK_STATS.map(({ icon: Icon, title, text, accent }, i) => (
               <div
@@ -64,14 +64,14 @@ export default function HomePage() {
           <span className="text-xs font-display font-bold uppercase tracking-widest text-brand-sky">
             Venha nos conhecer
           </span>
-          <h2 className="mt-3 font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white">
+          <h2 className="mt-3 font-display font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white">
             O futuro do seu filho começa aqui
           </h2>
           <p className="mt-5 text-lg text-white/75 leading-relaxed max-w-xl mx-auto">
             Agende uma visita ou solicite informações sobre matrículas. Estamos prontos para receber sua família!
           </p>
           <div className="mt-10 flex flex-wrap justify-center gap-4">
-            <Link to="/contato" className="tap-target inline-flex items-center gap-2 px-8 rounded-xl bg-brand-sky text-white font-display font-bold text-base hover:bg-brand-sky-mid transition-colors shadow-lg">
+            <Link to="/contato" className="tap-target inline-flex items-center gap-2 px-8 rounded-xl bg-brand-sky-mid text-white font-display font-bold text-base hover:bg-brand-navy transition-colors shadow-lg">
               Fale conosco <IconArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/sobre" className="tap-target inline-flex items-center px-8 rounded-xl border-2 border-white/40 text-white font-display font-bold text-base hover:bg-white/10 transition-colors">

@@ -10,6 +10,9 @@ const TESTIMONIALS: Testimonial[] = [
   { id: 1, name: 'Rejane Junior', role: 'Mãe de aluno', initials: 'RJ', avatarBg: 'bg-brand-sky', stars: 5, quote: 'A escola cuida de cada criança com muito amor e dedicação. Meu filho chegava animado todos os dias e aprendeu de um jeito que nunca imaginei ser possível. Os professores são incríveis!' },
   { id: 2, name: 'Família Oliveira', role: 'Pais de aluna da Educação Infantil', initials: 'FO', avatarBg: 'bg-brand-navy', stars: 5, quote: 'O ambiente é acolhedor, alegre e seguro. As atividades lúdicas são maravilhosas. Nossa filha chegava em casa querendo mostrar tudo o que aprendeu. É educação de verdade!' },
   { id: 3, name: 'Ana Paula Santos', role: 'Mãe de aluno do Fundamental I', initials: 'AP', avatarBg: 'bg-brand-green', stars: 5, quote: 'Eles celebram datas importantes, trabalham a inclusão e fazem nossas crianças sentirem que são especiais. Recomendo de olhos fechados para quem mora em Escada e região!' },
+  { id: 4, name: 'Carla Mendonça', role: 'Mãe de aluno', initials: 'CM', avatarBg: 'bg-brand-orange', stars: 5, quote: 'A Tempo de Aprender transformou a relação do meu filho com a escola. Antes ele tinha resistência, hoje chora quando tem feriado! Os professores são apaixonados pelo que fazem.' },
+  { id: 5, name: 'Família Barros', role: 'Pais de aluna da Educação Infantil', initials: 'FB', avatarBg: 'bg-brand-sky', stars: 5, quote: 'Nossa filha chegou tímida e hoje é protagonista nas apresentações. O ambiente acolhedor e as atividades lúdicas fizeram toda a diferença. Uma escola que cuida de alma!' },
+  { id: 6, name: 'Patrícia Lima', role: 'Mãe de aluna do Fundamental I', initials: 'PL', avatarBg: 'bg-brand-navy', stars: 5, quote: 'Escola de alto nível em Escada-PE. Professores dedicados, ambiente seguro e um cuidado especial com cada família. A melhor escolha que fizemos para o futuro da nossa filha.' },
 ]
 
 function Stars({ count }: { count: number }) {
@@ -24,7 +27,7 @@ function Stars({ count }: { count: number }) {
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <article className="bg-white rounded-2xl p-8 flex flex-col gap-6 border-2 border-brand-sky-light hover:border-brand-sky hover:shadow-xl hover:shadow-brand-sky/10 transition-all duration-300 hover:-translate-y-1" aria-labelledby={`testimonial-name-${t.id}`}>
+    <article className="bg-white rounded-2xl p-5 sm:p-8 flex flex-col gap-6 border-2 border-brand-sky-light hover:border-brand-sky hover:shadow-xl hover:shadow-brand-sky/10 transition-all duration-300 hover:-translate-y-1" aria-labelledby={`testimonial-name-${t.id}`}>
       <Stars count={t.stars} />
       <blockquote className="flex-1">
         <p className="text-brand-dark text-sm leading-relaxed">&ldquo;{t.quote}&rdquo;</p>

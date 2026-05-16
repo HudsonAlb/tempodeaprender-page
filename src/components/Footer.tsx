@@ -38,11 +38,11 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           {/* Identidade */}
           <div className="lg:col-span-1">
             <Link to="/" className="inline-flex items-center gap-3 tap-target" aria-label="Tempo de Aprender — Voltar ao início">
-              <span className="w-9 h-9 rounded-xl bg-brand-sky flex items-center justify-center flex-shrink-0">
+              <span className="w-9 h-9 rounded-xl bg-brand-sky-mid flex items-center justify-center flex-shrink-0">
                 <span className="font-display font-extrabold text-white text-base" aria-hidden="true">T</span>
               </span>
               <span className="font-display font-bold text-lg leading-tight">

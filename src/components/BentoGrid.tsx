@@ -20,7 +20,7 @@ function PhotoCard({ id, tag, tagColor, title, body, textColor, imgSrc, imgAlt, 
       <div className="relative p-7 flex flex-col gap-2">
         <span className={`self-start ${tagColor} px-2.5 py-1 rounded-full text-xs font-display font-bold uppercase tracking-wide`}>{tag}</span>
         <h3 id={`card-title-${id}`} className={`font-display font-bold text-xl ${textColor}`}>{title}</h3>
-        <p className={`text-sm leading-relaxed ${textColor} opacity-85`}>{body}</p>
+        <p className={`text-sm leading-relaxed ${textColor}`}>{body}</p>
       </div>
     </article>
   )
@@ -36,7 +36,7 @@ function ColorCard({ card }: { card: ColorCardData }) {
       </div>
       <div>
         <h3 id={`card-title-${card.id}`} className={`font-display font-bold text-xl ${card.textColor}`}>{card.title}</h3>
-        <p className={`mt-2 text-sm leading-relaxed ${card.textColor} opacity-80`}>{card.body}</p>
+        <p className={`mt-2 text-sm leading-relaxed ${card.textColor}`}>{card.body}</p>
       </div>
     </article>
   )

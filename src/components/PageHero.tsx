@@ -47,7 +47,7 @@ export default function PageHero({ title, subtitle, breadcrumb }: PageHeroProps)
           </ol>
         </nav>
 
-        <h1 className="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white leading-tight">
+        <h1 className="font-display font-extrabold text-2xl sm:text-4xl lg:text-5xl text-white leading-tight">
           {title}
         </h1>
         <p className="mt-4 text-lg text-white/75 leading-relaxed max-w-2xl">

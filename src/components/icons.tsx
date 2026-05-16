@@ -121,3 +121,17 @@ export const IconGraduation = ({ className = 'w-6 h-6' }: IconProps) => (
     <path d="M22 10v6" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
   </svg>
 )
+
+export const IconWhatsApp = ({ className = 'w-6 h-6' }: IconProps) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+    <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+)
+
+export const IconInstagram = ({ className = 'w-6 h-6' }: IconProps) => (
+  <svg className={className} viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+    <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="2"/>
+    <circle cx="17.5" cy="6.5" r="1.2" fill="currentColor"/>
+  </svg>
+)
