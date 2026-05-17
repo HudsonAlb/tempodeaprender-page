@@ -1,18 +1,7 @@
-import type { ComponentType, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { useState } from 'react'
-import { IconPhone, IconPin, IconWhatsApp, IconInstagram, IconCheck } from './icons'
+import { IconWhatsApp, IconInstagram, IconCheck } from './icons'
 import { useReveal } from '@/hooks/useReveal'
-
-interface ContactInfo {
-  id: string; Icon: ComponentType<{ className?: string }>
-  label: string; value: string; href: string
-}
-
-const CONTACT_INFO: ContactInfo[] = [
-  { id: 'whatsapp', Icon: IconPhone, label: 'WhatsApp', value: 'whats.link/escolatempodeaprender', href: 'https://whats.link/escolatempodeaprender' },
-  { id: 'instagram', Icon: IconPhone, label: 'Instagram', value: '@escolatempodeaprender24', href: 'https://www.instagram.com/escolatempodeaprender24/' },
-  { id: 'endereco', Icon: IconPin, label: 'Endereço', value: 'Avenida Paulo Leite, Nº 485 — Escada, PE', href: 'https://maps.google.com/?q=Avenida+Paulo+Leite+485+Escada+Pernambuco' },
-]
 
 const SERIES: string[] = ['Educação Infantil', '1º ao 5º ano (Fundamental I)']
 
@@ -54,7 +43,7 @@ export default function ContactForm() {
         <span className="flex-[1] bg-brand-orange" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 grid lg:grid-cols-2 gap-10 lg:gap-16">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 grid lg:grid-cols-[5fr_7fr] gap-10 lg:gap-16 items-start">
 
         {/* Sidebar */}
         <div
@@ -95,36 +84,9 @@ export default function ContactForm() {
             </a>
           </div>
 
-          {/* Contact info list */}
-          <ul
-            className="reveal-left mt-10 flex flex-col gap-5"
-            aria-label="Informações de contato"
-            style={{ transitionDelay: '200ms' }}
-          >
-            {CONTACT_INFO.map(({ id, Icon, label, value, href }) => (
-              <li key={id} className="flex items-start gap-4">
-                <span className="flex-shrink-0 w-11 h-11 rounded-xl bg-brand-sky-light flex items-center justify-center text-brand-sky-mid">
-                  <Icon className="w-5 h-5" />
-                </span>
-                <div>
-                  <p className="text-xs font-medium text-brand-gray-mid">{label}</p>
-                  <a
-                    href={href}
-                    className="text-sm font-medium text-brand-navy hover:text-brand-sky-mid transition-colors"
-                    aria-label={`${label}: ${value}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {value}
-                  </a>
-                </div>
-              </li>
-            ))}
-          </ul>
-
           <div
-            className="reveal-left mt-10 p-5 rounded-2xl bg-brand-sky-pale border-2 border-brand-sky-light"
-            style={{ transitionDelay: '280ms' }}
+            className="reveal-left mt-8 p-5 rounded-2xl bg-brand-sky-pale border-2 border-brand-sky-light"
+            style={{ transitionDelay: '200ms' }}
           >
             <p className="font-display font-bold text-brand-navy text-sm mb-2">Horário de atendimento</p>
             <p className="text-sm text-brand-gray-mid">
