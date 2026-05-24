@@ -1,5 +1,6 @@
 import { useReveal } from '@/hooks/useReveal'
-
+import { IllustrationStar, IllustrationScribble } from './Illustrations'
+import ImageWithSkeleton from './ImageWithSkeleton'
 interface Pillar { number: string; color: string; title: string; body: string }
 interface Photo { src: string; alt: string; caption: string; span: string; height: string }
 
@@ -20,8 +21,16 @@ export default function About() {
   const [textRef, textVisible] = useReveal<HTMLDivElement>()
 
   return (
-    <section id="sobre" aria-labelledby="about-heading" className="py-28 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
+    <section id="sobre" aria-labelledby="about-heading" className="relative py-28 bg-white overflow-hidden">
+      {/* Elementos Lúdicos decorativos */}
+      <div aria-hidden="true" className="absolute top-16 left-8 lg:left-20 text-brand-orange/30 w-16 h-16 animate-[spin_10s_linear_infinite] z-0 pointer-events-none">
+        <IllustrationStar className="w-full h-full" />
+      </div>
+      <div aria-hidden="true" className="absolute bottom-20 right-8 lg:right-20 text-brand-green/30 w-24 h-24 -rotate-12 z-0 pointer-events-none">
+        <IllustrationScribble className="w-full h-full" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
         {/* Grade de fotos — slide in from left */}
         <div
           ref={photosRef}
@@ -33,9 +42,15 @@ export default function About() {
               className={`${span} reveal-left relative rounded-2xl overflow-hidden ${height} group`}
               style={{ transitionDelay: `${i * 120}ms` }}
             >
-              <img src={src} alt={alt} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 to-transparent" />
-              <span className="absolute bottom-3 left-3 text-white text-xs font-display font-bold bg-brand-sky/80 backdrop-blur-sm px-2 py-1 rounded-lg">{caption}</span>
+              <ImageWithSkeleton 
+                src={src} 
+                alt={alt} 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                loading="lazy" 
+                wrapperClassName="w-full h-full"
+              />
+              <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 to-transparent pointer-events-none z-20" />
+              <span className="absolute bottom-3 left-3 text-white text-xs font-display font-bold bg-brand-sky/80 backdrop-blur-sm px-2 py-1 rounded-lg z-30">{caption}</span>
             </div>
           ))}
         </div>

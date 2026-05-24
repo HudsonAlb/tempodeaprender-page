@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { IconCheck, IconArrowRight } from './icons'
-
+import { IllustrationStar, IllustrationPaperPlane, IllustrationScribble } from './Illustrations'
 const HIGHLIGHTS: string[] = [
   'Educação Infantil e Ensino Fundamental I',
   'Escada, Pernambuco',
@@ -64,6 +64,17 @@ export default function Hero() {
         <span className="flex-[1] bg-white/60" />
         <span className="flex-[1] bg-brand-green" />
         <span className="flex-[1] bg-brand-orange" />
+      </div>
+
+      {/* Elementos Lúdicos */}
+      <div aria-hidden="true" className="absolute top-32 left-10 lg:left-20 text-brand-orange/60 w-16 h-16 animate-[bounce_4s_infinite] z-10 pointer-events-none">
+        <IllustrationStar className="w-full h-full transform -rotate-12" />
+      </div>
+      <div aria-hidden="true" className="absolute bottom-10 right-10 lg:right-32 text-brand-green/60 w-24 h-24 animate-pulse z-10 pointer-events-none">
+        <IllustrationScribble className="w-full h-full transform rotate-12" />
+      </div>
+      <div aria-hidden="true" className="absolute top-40 right-20 lg:right-40 text-brand-sky/60 w-16 h-16 z-10 pointer-events-none">
+        <IllustrationPaperPlane className="w-full h-full transform rotate-45" />
       </div>
 
       {/* Conteúdo sobreposto — staggered entrance */}

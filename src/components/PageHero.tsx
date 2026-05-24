@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { IconChevronRight } from './icons'
-
+import { IllustrationStar, IllustrationDots } from './Illustrations'
 interface PageHeroProps {
   title: string
   subtitle: string
@@ -29,6 +29,13 @@ export default function PageHero({ title, subtitle, breadcrumb }: PageHeroProps)
       <div aria-hidden="true" className="absolute top-10 right-10 w-64 h-64 rounded-full bg-brand-sky/5 blur-3xl" />
       <div aria-hidden="true" className="absolute bottom-0 left-10 w-48 h-48 rounded-full bg-brand-orange/5 blur-3xl" />
 
+      {/* Elementos Lúdicos */}
+      <div aria-hidden="true" className="absolute top-20 right-[15%] text-brand-orange/40 w-12 h-12 rotate-12 z-10 pointer-events-none">
+        <IllustrationStar className="w-full h-full" />
+      </div>
+      <div aria-hidden="true" className="absolute bottom-10 left-[15%] text-brand-sky/40 w-16 h-16 -rotate-12 z-10 pointer-events-none">
+        <IllustrationDots className="w-full h-full" />
+      </div>
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-6">

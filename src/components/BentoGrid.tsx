@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react'
 import { IconFlask, IconSport, IconLanguage, IconTech } from './icons'
 import { useReveal, useStaggerReveal } from '@/hooks/useReveal'
+import ImageWithSkeleton from './ImageWithSkeleton'
 
 interface PhotoCardProps {
   id: string; tag: string; tagColor: string; title: string
@@ -15,9 +16,17 @@ interface ColorCardData {
 function PhotoCard({ id, tag, tagColor, title, body, textColor, imgSrc, imgAlt, span }: PhotoCardProps) {
   return (
     <article className={`${span} rounded-2xl overflow-hidden relative min-h-[240px] flex flex-col justify-end group`} aria-labelledby={`card-title-${id}`}>
-      <img src={imgSrc} alt={imgAlt} className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" loading="lazy" />
-      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/30 to-transparent" />
-      <div className="relative p-7 flex flex-col gap-2">
+      <div className="absolute inset-0 w-full h-full z-0">
+        <ImageWithSkeleton 
+          src={imgSrc} 
+          alt={imgAlt} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+          loading="lazy" 
+          wrapperClassName="w-full h-full"
+        />
+      </div>
+      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-brand-navy/80 via-brand-navy/30 to-transparent z-10 pointer-events-none" />
+      <div className="relative z-20 p-7 flex flex-col gap-2">
         <span className={`self-start ${tagColor} px-2.5 py-1 rounded-full text-xs font-display font-bold uppercase tracking-wide`}>{tag}</span>
         <h3 id={`card-title-${id}`} className={`font-display font-bold text-xl ${textColor}`}>{title}</h3>
         <p className={`text-sm leading-relaxed ${textColor}`}>{body}</p>

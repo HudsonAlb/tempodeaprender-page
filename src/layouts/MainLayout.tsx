@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
-import { Outlet, useLocation } from 'react-router-dom'
+import { useLocation, useOutlet } from 'react-router-dom'
+import { AnimatePresence, motion } from 'framer-motion'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import WelcomeModal from '@/components/WelcomeModal'
@@ -13,6 +14,9 @@ function ScrollToTop() {
 }
 
 export default function MainLayout() {
+  const location = useLocation()
+  const outlet = useOutlet()
+
   return (
     <>
       <ScrollToTop />
@@ -23,8 +27,18 @@ export default function MainLayout() {
         Pular para o conteúdo principal
       </a>
       <Header />
-      <main id="main-content">
-        <Outlet />
+      <main id="main-content" className="relative min-h-screen">
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={location.pathname}
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {outlet}
+          </motion.div>
+        </AnimatePresence>
       </main>
       <Footer />
       <WelcomeModal />

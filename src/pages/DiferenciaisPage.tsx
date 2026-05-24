@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom'
 import PageHero from '@/components/PageHero'
 import BentoGrid from '@/components/BentoGrid'
+import SEO from '@/components/SEO'
 import { useReveal, useStaggerReveal } from '@/hooks/useReveal'
 import { IconArrowRight, IconBook, IconUsers, IconGraduation } from '@/components/icons'
 
 const HIGHLIGHTS = [
-  { icon: IconBook, title: 'Metodologia ativa', text: 'Aprendizado por experiência, ludicidade e experimentação — não apenas teoria.', accent: 'text-brand-sky-mid' },
+  { icon: IconBook, title: 'Metodologia ativa', text: 'Aprendizado por experience, ludicidade e experimentação — não apenas teoria.', accent: 'text-brand-sky-mid' },
   { icon: IconUsers, title: 'Comunidade integrada', text: 'Família e escola parceiras no desenvolvimento de cada criança, com canal aberto e transparente.', accent: 'text-brand-green' },
   { icon: IconGraduation, title: 'Excelência acadêmica', text: 'Base sólida na Educação Infantil e no Fundamental I que prepara para os próximos desafios.', accent: 'text-brand-orange' },
 ]
@@ -16,6 +17,11 @@ export default function DiferenciaisPage() {
 
   return (
     <>
+      <SEO
+        title="Nossos Diferenciais — Escola Tempo de Aprender em Escada, PE"
+        description="Descubra por que a escola Tempo de Aprender é referência em Escada, PE. Metodologia ativa, robótica, inglês, inclusão escolar e ambiente acolhedor."
+        keywords="diferenciais escola tempo de aprender, metodologia ativa Escada PE, escola referência Escada PE, diferenciais escola infantil Escada"
+      />
       <PageHero
         title="Nossos Diferenciais"
         subtitle="Descubra tudo o que faz da Tempo de Aprender uma escola especial — atividades lúdicas, inclusão, cultura regional e muito mais."

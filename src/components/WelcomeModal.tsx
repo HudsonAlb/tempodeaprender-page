@@ -1,11 +1,93 @@
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { IconClose, IconArrowRight, IconSport } from './icons'
+import { IconClose, IconArrowRight, IconSport, IconBook, IconStar, IconHeart } from './icons'
+
+type ThemeType = 'copa' | 'matriculas' | 'festa-junina' | 'dia-criancas'
+
+interface ThemeConfig {
+  id: ThemeType
+  imageSrc: string
+  imageAlt: string
+  badgeIcon: React.ElementType
+  badgeText: string
+  badgeColor: string
+  title: React.ReactNode
+  body: React.ReactNode
+  buttonText: string
+}
+
+const THEMES: Record<ThemeType, ThemeConfig> = {
+  copa: {
+    id: 'copa',
+    imageSrc: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=440&q=85&auto=format&fit=crop',
+    imageAlt: 'Estádio iluminado durante a Copa do Mundo',
+    badgeIcon: IconSport,
+    badgeText: 'Copa do Mundo 2026',
+    badgeColor: 'bg-brand-orange',
+    title: <>Garanta a vaga antes<br />do apito final!</>,
+    body: (
+      <>
+        2026 é o ano da <strong className="text-brand-navy">Copa do Mundo</strong> — e o melhor momento para garantir o futuro do seu filho. Matrículas abertas na <strong className="text-brand-navy">Tempo de Aprender</strong>!
+      </>
+    ),
+    buttonText: 'Garantir minha vaga'
+  },
+  matriculas: {
+    id: 'matriculas',
+    imageSrc: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&h=440&q=85&auto=format&fit=crop',
+    imageAlt: 'Crianças estudando e sorrindo',
+    badgeIcon: IconBook,
+    badgeText: 'Matrículas Abertas',
+    badgeColor: 'bg-brand-sky-mid',
+    title: <>O futuro começa<br />agora mesmo!</>,
+    body: (
+      <>
+        Garanta o melhor ensino para o seu filho com metodologia ativa, ambiente seguro e professores que ensinam com muito amor.
+      </>
+    ),
+    buttonText: 'Fazer matrícula'
+  },
+  'festa-junina': {
+    id: 'festa-junina',
+    imageSrc: 'https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=900&h=440&q=85&auto=format&fit=crop',
+    imageAlt: 'Decoração típica de festa junina',
+    badgeIcon: IconStar,
+    badgeText: 'Arraiá da Escola',
+    badgeColor: 'bg-brand-orange-mid',
+    title: <>Prepare-se para o<br />nosso Arraiá!</>,
+    body: (
+      <>
+        Muita comida típica, brincadeiras, quadrilha e diversão para toda a família. Não fique de fora da festa mais animada do ano!
+      </>
+    ),
+    buttonText: 'Saber mais'
+  },
+  'dia-criancas': {
+    id: 'dia-criancas',
+    imageSrc: 'https://images.unsplash.com/photo-1564429238817-393bd4286b2d?w=900&h=440&q=85&auto=format&fit=crop',
+    imageAlt: 'Brinquedos educativos e lúdicos',
+    badgeIcon: IconHeart,
+    badgeText: 'Dia das Crianças',
+    badgeColor: 'bg-brand-green-mid',
+    title: <>Uma semana inteira<br />de diversão!</>,
+    body: (
+      <>
+        Preparamos uma programação super especial com atividades lúdicas, gincanas e muitas surpresas para comemorar o Dia das Crianças.
+      </>
+    ),
+    buttonText: 'Ver programação'
+  }
+}
+
+// Alterar o tema ativo aqui:
+const ACTIVE_THEME: ThemeType = 'copa'
 
 export default function WelcomeModal() {
   const [rendered, setRendered] = useState(false)
   const [visible, setVisible] = useState(false)
   const dialogRef = useRef<HTMLDivElement>(null)
+
+  const theme = THEMES[ACTIVE_THEME]
 
   /* Mostrar após 900ms a cada carregamento de página */
   useEffect(() => {
@@ -46,6 +128,8 @@ export default function WelcomeModal() {
 
   if (!rendered) return null
 
+  const BadgeIcon = theme.badgeIcon
+
   return (
     <div
       className={`fixed inset-0 z-[9999] flex items-center justify-center px-4 transition-opacity duration-300 ${visible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}
@@ -62,7 +146,7 @@ export default function WelcomeModal() {
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
-        aria-labelledby="copa-modal-title"
+        aria-labelledby="modal-title"
         tabIndex={-1}
         className="relative z-10 w-full max-w-md rounded-3xl overflow-hidden shadow-2xl outline-none"
         style={{
@@ -80,11 +164,11 @@ export default function WelcomeModal() {
           <IconClose className="w-4 h-4" />
         </button>
 
-        {/* Imagem — substitua pelo arquivo da imagem IA gerada */}
+        {/* Imagem do tema */}
         <div className="relative h-56 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?w=900&h=440&q=85&auto=format&fit=crop"
-            alt="Estádio iluminado durante a Copa do Mundo 2026"
+            src={theme.imageSrc}
+            alt={theme.imageAlt}
             className="w-full h-full object-cover"
             loading="eager"
           />
@@ -96,15 +180,15 @@ export default function WelcomeModal() {
 
           {/* Badge + título sobre a imagem */}
           <div className="absolute bottom-5 left-5 right-12">
-            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-orange text-white text-xs font-display font-bold uppercase tracking-wide">
-              <IconSport className="w-3.5 h-3.5" aria-hidden="true" />
-              Copa do Mundo 2026
+            <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-display font-bold uppercase tracking-wide ${theme.badgeColor}`}>
+              <BadgeIcon className="w-3.5 h-3.5" aria-hidden="true" />
+              {theme.badgeText}
             </span>
             <h2
-              id="copa-modal-title"
+              id="modal-title"
               className="mt-2 font-display font-extrabold text-xl sm:text-2xl text-white leading-snug"
             >
-              Garanta a vaga antes<br />do apito final!
+              {theme.title}
             </h2>
           </div>
         </div>
@@ -120,11 +204,7 @@ export default function WelcomeModal() {
           </div>
 
           <p className="text-sm text-brand-gray-mid leading-relaxed">
-            2026 é o ano da{' '}
-            <strong className="text-brand-navy">Copa do Mundo</strong> — e o
-            melhor momento para garantir o futuro do seu filho. Matrículas
-            abertas na{' '}
-            <strong className="text-brand-navy">Tempo de Aprender</strong>!
+            {theme.body}
           </p>
 
           <div className="mt-5 flex flex-col gap-2">
@@ -133,7 +213,7 @@ export default function WelcomeModal() {
               onClick={dismiss}
               className="tap-target flex items-center justify-center gap-2 px-6 rounded-xl bg-brand-sky-mid text-white font-display font-bold text-sm hover:bg-brand-navy transition-colors shadow-md"
             >
-              Garantir minha vaga <IconArrowRight className="w-4 h-4" />
+              {theme.buttonText} <IconArrowRight className="w-4 h-4" />
             </Link>
             <button
               type="button"

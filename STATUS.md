@@ -4,6 +4,22 @@ Este documento serve como um registro do progresso atual da reestruturação do 
 
 ---
 
+## 🕒 Última Sessão (Hoje)
+
+**Foco em Polimento e Experiência do Usuário:**
+- ✅ **Elementos Lúdicos e Ilustrações:** Criação de componentes SVG escaláveis (estrelas, rabiscos, aviões de papel) incorporados de forma sutil com animações (flutuação e pulso) nas páginas Início, Sobre e Cabeçalhos para trazer uma sensação mais acolhedora e infantil.
+- ✅ **Carrossel Interativo de Depoimentos:** Substituição da grade estática por um carrossel responsivo e nativo (CSS scroll snapping) com navegação fluida por botões ou deslize.
+- ✅ **Timeline Histórica Interativa:** Otimização da seção de Marcos Históricos na página `/sobre` para funcionar como um *accordion*, permitindo que pais cliquem em cada ano para ler os detalhes e visualizar fotos da época.
+
+## 🎯 Próxima Sessão (Sugestão de Foco)
+
+Podemos continuar o polimento visual na "Fase Extra" ou começar a preparar para o lançamento "Fase 3":
+1. ✅ **Transições de Rotas (Page Transitions)**: Adicionar animações elegantes (ex: framer-motion ou classes nativas) ao navegar entre páginas, evitando a quebra brusca de tela.
+2. **Skeleton Loaders ou Theming do Google Maps**: Garantir que as imagens e o mapa carreguem sem "pular" o layout da página ou destoar das cores do design.
+3. **Revisão de Build e Testes Finais**: Iniciar os testes preparatórios e o build final, deixando a plataforma 100% pronta para receber os conteúdos definitivos da direção.
+
+---
+
 ## ✅ O que foi feito até agora
 
 ### 1. Estrutura e Fundação Tecnológica
@@ -26,6 +42,14 @@ Este documento serve como um registro do progresso atual da reestruturação do 
 - **Botões de ação rápida** em destaque: WhatsApp (verde #25D366) e Instagram (gradiente) com animações slide-in.
 - **Mapa embed** do Google Maps com a localização em Escada-PE, card de endereço e horários de atendimento.
 - Animações reveal no sidebar e no formulário.
+- **Layout equilibrado**: grid assimétrico `[5fr_7fr]` — sidebar com título, botões de ação rápida e horários; formulário com largura proporcional ao conteúdo. Lista de contatos removida do sidebar (duplicada no mapa e rodapé).
+
+### 7. Modal de Boas-vindas ✅ *Concluído*
+- **Componente `WelcomeModal`**: banner em modal exibido 900ms após cada carregamento de página (aparece novamente a cada atualização — sem sessionStorage).
+- **Tema Copa do Mundo 2026**: imagem de estádio, badge laranja com ícone de esporte, headline "Garanta a vaga antes do apito final!", faixa decorativa com as cores da marca.
+- **Acessibilidade completa**: `role="dialog"`, `aria-modal`, `aria-labelledby`, foco automático ao abrir, fechamento com Escape e clique no backdrop, scroll do body travado enquanto aberto.
+- **Animação**: escala + translateY com `cubic-bezier(0.16, 1, 0.3, 1)`, fundo escurecido com `bg-black/75 backdrop-blur-md`.
+- **Integrado ao `MainLayout.tsx`**: renderizado após `<Footer />`, presente em todas as rotas.
 
 ### 5. Acessibilidade ✅ *Auditoria e Correções Concluídas*
 - **Contrastes corrigidos** (WCAG AA):
@@ -58,10 +82,19 @@ Este documento serve como um registro do progresso atual da reestruturação do 
 - [ ] **Revisão de copy completa**: Revisar todos os textos com a diretoria — bios, depoimentos, datas da timeline, descrições de diferenciais e mensagem da home. Confirmar que o WhatsApp (`whats.link/escolatempodeaprender`) e o Instagram (`@escolatempodeaprender24`) estão corretos.
 - [ ] **Fotos reais**: Substituir as imagens do Unsplash por fotos reais da escola, das salas de aula, dos eventos e dos alunos (com autorização dos responsáveis).
 
-### Fase 2: SEO Local *(Crucial para conversão orgânica)*
-- [ ] **Meta Tags**: Configurar `<title>`, `<meta description>` e Open Graph (preview para WhatsApp/redes sociais) em cada rota — otimizados para pesquisas como "escola infantil em Escada PE" e "matrícula fundamental Escada".
-- [ ] **Favicon e ícones PWA**: Adicionar favicon real e ícones para tela inicial de celular.
-- [ ] **`sitemap.xml` e `robots.txt`**: Configurar para indexação correta pelo Google.
+### Fase 2: SEO Local *(Crucial para conversão orgânica)* ✅ *Concluído*
+- [x] **Meta Tags**: Configurar `<title>`, `<meta description>` e Open Graph (preview para WhatsApp/redes sociais) em cada rota — otimizados para pesquisas como "escola infantil em Escada PE" e "matrícula fundamental Escada".
+- [x] **Favicon**: Adicionado favicon real em SVG em conformidade com as cores da identidade visual.
+- [x] **`sitemap.xml` e `robots.txt`**: Configurar para indexação correta pelo Google.
+
+### Fase Extra: Design & Experiência Visual *(Oportunidades de Polimento)*
+- [x] **Elementos Lúdicos e Ilustrações**: Adicionar pequenos grafismos vetoriais em SVG (rabiscos estilo giz de cera, estrelas, aviões de papel) usando as cores da marca para quebrar a seriedade e tornar o visual mais infantil e acolhedor.
+- [x] **Carrossel Interativo de Depoimentos**: Em vez de uma grade estática na página de depoimentos, implementar um componente slider/carrossel dinâmico com transições suaves para melhor leitura dos feedbacks das famílias.
+- [x] **Timeline Histórica Interativa**: Tornar a linha do tempo da história da escola na página `/sobre` interativa, permitindo cliques para expandir fotos e detalhes de cada ano/marco.
+- [x] **Transição de Rotas (Page Transitions)**: Adicionar transições de fade ou slide suave ao navegar entre diferentes páginas para aumentar a percepção de fluidez e refinamento.
+- [x] **Customização Temática do WelcomeModal**: Permitir que o banner inicial seja facilmente alternável para campanhas sazonais (Volta às Aulas, Festa Junina, Dia das Crianças, Matrículas Abertas) sem quebrar o layout.
+- [x] **Estilo Personalizado do Google Maps**: Aplicar um tema visual personalizado (via CSS/overlay ou mapas estilizados) no mapa incorporado da página de contato para combinar com a paleta azul-marinho e azul-celeste da escola.
+- [x] **Skeletons para Carregamento de Imagens**: Adicionar estados de carregamento animados (shimmer patterns/skeletons) nas galerias e fotos da equipe para evitar saltos visuais na tela enquanto as fotos reais carregam.
 
 ### Fase 3: Build e Deploy *(Lançamento)*
 - [ ] **Teste em dispositivos reais**: Confirmar experiência em iPhone, Android e tablets físicos além da simulação por código.

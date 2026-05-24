@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import Hero from '@/components/Hero'
 import BentoGrid from '@/components/BentoGrid'
+import SEO from '@/components/SEO'
 import { useReveal, useStaggerReveal } from '@/hooks/useReveal'
 import { IconArrowRight, IconHeart, IconUsers, IconGraduation } from '@/components/icons'
 
@@ -23,6 +24,11 @@ export default function HomePage() {
 
   return (
     <>
+      <SEO
+        title="Tempo de Aprender — Escola Infantil e Ensino Fundamental em Escada, PE"
+        description="Escola Tempo de Aprender em Escada, PE. Matrículas abertas para Educação Infantil e Ensino Fundamental. Metodologia ativa, afeto e excelência no ensino."
+        keywords="escola infantil em Escada PE, matrícula fundamental Escada, escola tempo de aprender, educação infantil Escada PE, ensino fundamental Escada"
+      />
       <Hero />
 
       {/* Seção de destaque rápido */}

@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import PageHero from '@/components/PageHero'
 import ContactForm from '@/components/ContactForm'
+import SEO from '@/components/SEO'
 import { useReveal } from '@/hooks/useReveal'
 import { IconPin, IconArrowRight } from '@/components/icons'
 
@@ -10,6 +11,11 @@ export default function ContatoPage() {
 
   return (
     <>
+      <SEO
+        title="Contato e Matrículas — Escola Tempo de Aprender em Escada, PE"
+        description="Fale conosco para agendar uma visita e fazer a matrícula fundamental ou infantil em Escada, PE. Localização, horário de atendimento e WhatsApp."
+        keywords="contato tempo de aprender, matrícula fundamental Escada, matrícula infantil Escada PE, telefone escola Escada PE, endereço escola tempo de aprender"
+      />
       <PageHero
         title="Fale Conosco"
         subtitle="Tire suas dúvidas, agende uma visita ou solicite informações sobre matrículas. Estamos prontos para receber sua família!"
@@ -36,16 +42,20 @@ export default function ContatoPage() {
             ref={mapRef}
             className={`reveal grid lg:grid-cols-3 gap-8 items-start ${mapVisible ? 'visible' : ''}`}
           >
-            {/* Mapa iframe */}
-            <div className="reveal-left lg:col-span-2">
+            {/* Mapa iframe com Estilo Personalizado */}
+            <div className="reveal-left lg:col-span-2 relative rounded-2xl overflow-hidden border-2 border-brand-sky-light group">
               <iframe
                 title="Localização da Escola Tempo de Aprender em Escada, Pernambuco"
                 src="https://maps.google.com/maps?q=Avenida+Paulo+Leite+485+Escada+Pernambuco+Brasil&output=embed&hl=pt-BR"
-                className="w-full h-80 lg:h-96 rounded-2xl border-2 border-brand-sky-light"
+                className="w-full h-80 lg:h-96"
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 allowFullScreen
+                style={{ filter: 'contrast(1.05) opacity(0.95)' }}
               />
+              {/* Overlay para tingir o mapa com a cor da marca (removido no hover para permitir interação) */}
+              <div className="absolute inset-0 bg-brand-navy/10 mix-blend-multiply pointer-events-none transition-opacity duration-500 group-hover:opacity-0" aria-hidden="true" />
+              <div className="absolute inset-0 bg-brand-sky-mid/10 pointer-events-none transition-opacity duration-500 group-hover:opacity-0" aria-hidden="true" />
             </div>
 
             {/* Cards laterais */}

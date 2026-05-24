@@ -1,5 +1,6 @@
-import { IconStar } from './icons'
-import { useReveal, useStaggerReveal } from '@/hooks/useReveal'
+import { useRef, useState } from 'react'
+import { IconStar, IconChevronLeft, IconChevronRight } from './icons'
+import { useReveal } from '@/hooks/useReveal'
 
 interface Testimonial {
   id: number; name: string; role: string; initials: string
@@ -27,7 +28,7 @@ function Stars({ count }: { count: number }) {
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <article className="bg-white rounded-2xl p-5 sm:p-8 flex flex-col gap-6 border-2 border-brand-sky-light hover:border-brand-sky hover:shadow-xl hover:shadow-brand-sky/10 transition-all duration-300 hover:-translate-y-1" aria-labelledby={`testimonial-name-${t.id}`}>
+    <article className="bg-white rounded-2xl p-6 sm:p-8 flex flex-col gap-6 border-2 border-brand-sky-light hover:border-brand-sky hover:shadow-xl hover:shadow-brand-sky/10 transition-all duration-300 h-full cursor-grab active:cursor-grabbing" aria-labelledby={`testimonial-name-${t.id}`}>
       <Stars count={t.stars} />
       <blockquote className="flex-1">
         <p className="text-brand-dark text-sm leading-relaxed">&ldquo;{t.quote}&rdquo;</p>
@@ -45,35 +46,108 @@ function TestimonialCard({ t }: { t: Testimonial }) {
 
 export default function Testimonials() {
   const [headingRef, headingVisible] = useReveal<HTMLDivElement>()
-  const [gridRef, gridVisible, staggerDelay] = useStaggerReveal<HTMLDivElement>({ threshold: 0.1 })
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const scrollToIndex = (index: number) => {
+    if (scrollContainerRef.current) {
+      const container = scrollContainerRef.current
+      const child = container.children[index] as HTMLElement
+      if (child) {
+        container.scrollTo({
+          left: child.offsetLeft - container.offsetLeft,
+          behavior: 'smooth'
+        })
+      }
+    }
+  }
+
+  const handleScroll = () => {
+    if (scrollContainerRef.current) {
+      const { scrollLeft, clientWidth, children } = scrollContainerRef.current
+      let minDiff = Infinity
+      let newIndex = 0
+      for (let i = 0; i < children.length; i++) {
+         const child = children[i] as HTMLElement
+         const childCenter = child.offsetLeft - scrollContainerRef.current.offsetLeft + child.clientWidth / 2
+         const containerCenter = scrollLeft + clientWidth / 2
+         const diff = Math.abs(childCenter - containerCenter)
+         if (diff < minDiff) {
+            minDiff = diff
+            newIndex = i
+         }
+      }
+      setCurrentIndex(newIndex)
+    }
+  }
 
   return (
-    <section id="depoimentos" aria-labelledby="testimonials-heading" className="py-28 bg-brand-sky-pale">
+    <section id="depoimentos" aria-labelledby="testimonials-heading" className="py-28 bg-brand-sky-pale overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={headingRef}
-          className={`reveal max-w-xl mb-16 ${headingVisible ? 'visible' : ''}`}
+          className={`reveal flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 ${headingVisible ? 'visible' : ''}`}
         >
-          <span className="text-xs font-display font-bold uppercase tracking-widest text-brand-orange">Depoimentos</span>
-          <h2 id="testimonials-heading" className="mt-2 font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">
-            Quem vive a Tempo de Aprender, recomenda
-          </h2>
-        </div>
-        <div
-          ref={gridRef}
-          className={`reveal grid sm:grid-cols-2 lg:grid-cols-3 gap-6 ${gridVisible ? 'visible' : ''}`}
-        >
-          {TESTIMONIALS.map((t, i) => (
-            <div
-              key={t.id}
-              className="reveal-scale"
-              style={{ transitionDelay: staggerDelay(i) }}
+          <div className="max-w-xl">
+            <span className="text-xs font-display font-bold uppercase tracking-widest text-brand-orange">Depoimentos</span>
+            <h2 id="testimonials-heading" className="mt-2 font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">
+              Quem vive a Tempo de Aprender, recomenda
+            </h2>
+          </div>
+          
+          {/* Controles de Navegação Desktop */}
+          <div className="hidden sm:flex items-center gap-3">
+            <button 
+              onClick={() => scrollToIndex(Math.max(0, currentIndex - 1))}
+              disabled={currentIndex === 0}
+              className="w-10 h-10 rounded-full border-2 border-brand-sky-mid text-brand-sky-mid flex items-center justify-center hover:bg-brand-sky-mid hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-brand-sky-mid"
+              aria-label="Depoimento anterior"
             >
-              <TestimonialCard t={t} />
-            </div>
+              <IconChevronLeft className="w-5 h-5" />
+            </button>
+            <button 
+              onClick={() => scrollToIndex(Math.min(TESTIMONIALS.length - 1, currentIndex + 1))}
+              disabled={currentIndex === TESTIMONIALS.length - 1}
+              className="w-10 h-10 rounded-full border-2 border-brand-sky-mid text-brand-sky-mid flex items-center justify-center hover:bg-brand-sky-mid hover:text-white transition-colors disabled:opacity-30 disabled:hover:bg-transparent disabled:hover:text-brand-sky-mid"
+              aria-label="Próximo depoimento"
+            >
+              <IconChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+
+        {/* Container do Carrossel */}
+        <div className="-mx-4 px-4 sm:mx-0 sm:px-0">
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-8 pt-4"
+          >
+            {TESTIMONIALS.map((t) => (
+              <div
+                key={t.id}
+                className="snap-center sm:snap-start shrink-0 w-[85vw] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
+              >
+                <TestimonialCard t={t} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Dots para Mobile */}
+        <div className="flex sm:hidden items-center justify-center gap-2 mt-2">
+          {TESTIMONIALS.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToIndex(i)}
+              className={`w-2.5 h-2.5 rounded-full transition-colors ${i === currentIndex ? 'bg-brand-sky-mid' : 'bg-brand-sky-light'}`}
+              aria-label={`Ir para o depoimento ${i + 1}`}
+              aria-current={i === currentIndex ? 'true' : 'false'}
+            />
           ))}
         </div>
       </div>
     </section>
   )
 }
+
