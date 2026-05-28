@@ -47,6 +47,12 @@ const FEATURES: Feature[] = [
   },
 ]
 
+const HIGHLIGHTS: string[] = [
+  'Educação Infantil e Ensino Fundamental I',
+  'Escada, Pernambuco',
+  'Professores dedicados e especializados',
+]
+
 export default function Hero() {
   const [entered, setEntered] = useState(false)
 
@@ -82,6 +88,20 @@ export default function Hero() {
             
             {/* Conteúdo Esquerdo */}
             <div className="lg:col-span-5 text-left">
+              
+              {/* Badge matrícula */}
+              <span
+                className={[
+                  'inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-sky/15 border border-brand-sky/30 text-brand-navy font-display font-bold text-xs uppercase tracking-wider mb-6 transition-all duration-700',
+                  entered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
+                ].join(' ')}
+                style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '100ms' }}
+                role="status"
+              >
+                <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" aria-hidden="true" />
+                Matrículas Abertas 2026
+              </span>
+
               <h1
                 id="hero-heading"
                 className={[
@@ -118,17 +138,37 @@ export default function Hero() {
                 ].join(' ')}
                 style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '350ms' }}
               >
-                Educação com <span className="text-brand-red font-bold">amor</span>,{' '}
-                <span className="text-brand-navy font-bold">respeito</span> e{' '}
-                <span className="text-brand-yellow font-bold">alegria</span> para um futuro melhor.
+                Educação Infantil e Ensino Fundamental I com metodologia ativa,
+                ambiente acolhedor e professores que fazem a diferença.
               </p>
+
+              {/* Lista de destaques */}
+              <ul
+                className={[
+                  'mt-6 flex flex-col gap-2.5 transition-all duration-700',
+                  entered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
+                ].join(' ')}
+                style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '450ms' }}
+                aria-label="Destaques da escola"
+              >
+                {HIGHLIGHTS.map(item => (
+                  <li key={item} className="flex items-center gap-2.5 text-sm font-bold text-brand-navy/90">
+                    <span className="flex-shrink-0 w-5 h-5 rounded-full bg-brand-green/20 flex items-center justify-center text-brand-green">
+                      <svg className="w-3 h-3 stroke-current" fill="none" strokeWidth="3" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                      </svg>
+                    </span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
 
               <div
                 className={[
                   'mt-8 transition-all duration-700',
                   entered ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4',
                 ].join(' ')}
-                style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '500ms' }}
+                style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '550ms' }}
               >
                 <Link
                   to="/contato"
@@ -144,86 +184,88 @@ export default function Hero() {
             </div>
 
             {/* Conteúdo Direito - Foto Curvada e Doodles */}
-            <div className="lg:col-span-7 relative flex justify-center">
-              
-              {/* Moldura de Fundo Ondulada do Recorte */}
-              <div 
-                aria-hidden="true" 
-                className={[
-                  'absolute inset-0 bg-[#A2D5FA]/30 rounded-[45%_55%_60%_40%_/_50%_40%_60%_50%] transition-transform duration-[1.4s] scale-105 pointer-events-none',
-                  entered ? 'rotate-3' : 'rotate-0',
-                ].join(' ')}
-                style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '100ms' }}
-              />
-
-              {/* Recorte da foto real com bordas orgânicas fluidas */}
-              <div
-                className={[
-                  'relative w-full max-w-[540px] aspect-[4/3] sm:aspect-square overflow-hidden shadow-2xl transition-all duration-[1.2s]',
-                  entered ? 'opacity-100 scale-100' : 'opacity-0 scale-95',
-                  'rounded-[40%_60%_50%_50%_/_60%_45%_55%_40%] border-8 border-white bg-white',
-                ].join(' ')}
-                style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
-              >
-                <img
-                  src="/hero_teacher_parent.png"
-                  alt="Coordenadora pedagógica sorridente conversando com uma mãe"
-                  className="w-full h-full object-cover transition-transform duration-[1.5s] hover:scale-105"
-                  loading="eager"
+            <div className="lg:col-span-7 relative flex justify-center w-full">
+              <div className="relative w-full max-w-[540px] aspect-[4/3] sm:aspect-square">
+                
+                {/* Moldura de Fundo Ondulada do Recorte */}
+                <div 
+                  aria-hidden="true" 
+                  className={[
+                    'absolute inset-0 bg-[#A2D5FA]/30 rounded-[45%_55%_60%_40%_/_50%_40%_60%_50%] transition-transform duration-[1.4s] scale-105 pointer-events-none z-0',
+                    entered ? 'rotate-3' : 'rotate-0',
+                  ].join(' ')}
+                  style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '100ms' }}
                 />
-              </div>
 
-              {/* DOODLE: Sol Alegre */}
-              <div aria-hidden="true" className="absolute top-[-20px] right-[-10px] sm:right-10 text-brand-yellow w-14 h-14 pointer-events-none animate-[spin_30s_linear_infinite]">
-                <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round">
-                  <circle cx="50" cy="50" r="18" />
-                  <line x1="50" y1="10" x2="50" y2="22" />
-                  <line x1="50" y1="78" x2="50" y2="90" />
-                  <line x1="10" y1="50" x2="22" y2="50" />
-                  <line x1="78" y1="50" x2="90" y2="50" />
-                  <line x1="22" y1="22" x2="31" y2="31" />
-                  <line x1="69" y1="69" x2="78" y2="78" />
-                  <line x1="22" y1="69" x2="31" y2="60" />
-                  <line x1="69" y1="22" x2="60" y2="31" />
-                </svg>
-              </div>
-
-              {/* DOODLE: Avião de Papel com Rastro */}
-              <div aria-hidden="true" className="absolute top-[20%] left-[-20px] text-brand-sky/60 w-28 h-28 pointer-events-none hidden sm:block">
-                <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
-                  <path
-                    d="M10 100 Q40 50 60 70 T100 30"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeDasharray="6 6"
-                    fill="none"
+                {/* Recorte da foto real com bordas orgânicas fluidas */}
+                <div
+                  className={[
+                    'relative w-full h-full overflow-hidden shadow-2xl transition-all duration-[1.2s] z-10',
+                    entered ? 'opacity-100 scale-100' : 'opacity-0 scale-95',
+                    'rounded-[40%_60%_50%_50%_/_60%_45%_55%_40%] border-8 border-white bg-white',
+                  ].join(' ')}
+                  style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                >
+                  <img
+                    src="/hero_teacher_parent.png"
+                    alt="Coordenadora pedagógica sorridente conversando com uma mãe"
+                    className="w-full h-full object-cover transition-transform duration-[1.5s] hover:scale-105"
+                    loading="eager"
                   />
-                  <path
-                    d="M93 25 L108 30 L98 42 Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </div>
+                </div>
 
-              {/* DOODLE: Estrelinhas Lúdicas */}
-              <div aria-hidden="true" className="absolute bottom-[10%] left-[-10px] text-[#3282F6] w-6 h-6 pointer-events-none animate-pulse">
-                <svg viewBox="0 0 100 100" fill="currentColor">
-                  <path d="M50 5L62 38H97L69 58L80 95L50 73L20 95L31 58L3 38H38L50 5Z" />
-                </svg>
-              </div>
-              <div aria-hidden="true" className="absolute top-[10%] left-[45%] text-white w-5 h-5 pointer-events-none animate-pulse">
-                <svg viewBox="0 0 100 100" fill="currentColor">
-                  <path d="M50 5L62 38H97L69 58L80 95L50 73L20 95L31 58L3 38H38L50 5Z" />
-                </svg>
-              </div>
+                {/* DOODLE: Sol Alegre */}
+                <div aria-hidden="true" className="absolute top-[-25px] right-[-15px] sm:right-5 text-brand-yellow w-14 h-14 pointer-events-none animate-[spin_30s_linear_infinite] z-20">
+                  <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" strokeWidth="5" strokeLinecap="round">
+                    <circle cx="50" cy="50" r="18" />
+                    <line x1="50" y1="10" x2="50" y2="22" />
+                    <line x1="50" y1="78" x2="50" y2="90" />
+                    <line x1="10" y1="50" x2="22" y2="50" />
+                    <line x1="78" y1="50" x2="90" y2="50" />
+                    <line x1="22" y1="22" x2="31" y2="31" />
+                    <line x1="69" y1="69" x2="78" y2="78" />
+                    <line x1="22" y1="69" x2="31" y2="60" />
+                    <line x1="69" y1="22" x2="60" y2="31" />
+                  </svg>
+                </div>
 
-              {/* DOODLE: Nuvem */}
-              <div aria-hidden="true" className="absolute bottom-[5%] right-[-10px] text-white/80 w-16 h-10 pointer-events-none hidden sm:block">
-                <svg viewBox="0 0 100 60" fill="currentColor">
-                  <path d="M20 50 C 20 40, 30 30, 45 35 C 55 25, 75 25, 80 40 C 90 40, 95 48, 90 55 C 85 60, 15 60, 20 50 Z" />
-                </svg>
-              </div>
+                {/* DOODLE: Avião de Papel com Rastro */}
+                <div aria-hidden="true" className="absolute top-[20%] left-[-30px] text-brand-sky/60 w-28 h-28 pointer-events-none hidden sm:block z-20">
+                  <svg viewBox="0 0 120 120" fill="none" className="w-full h-full">
+                    <path
+                      d="M10 100 Q40 50 60 70 T100 30"
+                      stroke="currentColor"
+                      strokeWidth="2.5"
+                      strokeDasharray="6 6"
+                      fill="none"
+                    />
+                    <path
+                      d="M93 25 L108 30 L98 42 Z"
+                      fill="currentColor"
+                    />
+                  </svg>
+                </div>
 
+                {/* DOODLE: Estrelinhas Lúdicas */}
+                <div aria-hidden="true" className="absolute bottom-[10%] left-[-15px] text-[#3282F6] w-6 h-6 pointer-events-none animate-pulse z-20">
+                  <svg viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50 5L62 38H97L69 58L80 95L50 73L20 95L31 58L3 38H38L50 5Z" />
+                  </svg>
+                </div>
+                <div aria-hidden="true" className="absolute top-[10%] left-[45%] text-white w-5 h-5 pointer-events-none animate-pulse z-20">
+                  <svg viewBox="0 0 100 100" fill="currentColor">
+                    <path d="M50 5L62 38H97L69 58L80 95L50 73L20 95L31 58L3 38H38L50 5Z" />
+                  </svg>
+                </div>
+
+                {/* DOODLE: Nuvem */}
+                <div aria-hidden="true" className="absolute bottom-[5%] right-[-15px] text-white/80 w-16 h-10 pointer-events-none hidden sm:block z-20">
+                  <svg viewBox="0 0 100 60" fill="currentColor">
+                    <path d="M20 50 C 20 40, 30 30, 45 35 C 55 25, 75 25, 80 40 C 90 40, 95 48, 90 55 C 85 60, 15 60, 20 50 Z" />
+                  </svg>
+                </div>
+
+              </div>
             </div>
 
           </div>
