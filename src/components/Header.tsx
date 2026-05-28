@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { IconMenu, IconClose } from './icons'
+import SmilingClock from './SmilingClock'
 
 interface NavLink {
   to: string
@@ -8,12 +9,12 @@ interface NavLink {
 }
 
 const NAV_LINKS: NavLink[] = [
-  { to: '/',              label: 'Início'        },
-  { to: '/sobre',         label: 'Sobre Nós'    },
-  { to: '/equipe',        label: 'Equipe'        },
-  { to: '/diferenciais',  label: 'Diferenciais'  },
-  { to: '/depoimentos',   label: 'Depoimentos'   },
-  { to: '/contato',       label: 'Contato'        },
+  { to: '/',              label: 'A Escola'        },
+  { to: '/sobre',         label: 'Proposta Pedagógica' },
+  { to: '/equipe',        label: 'Turmas'          },
+  { to: '/diferenciais',  label: 'Galeria'         },
+  { to: '/depoimentos',   label: 'Notícias'        },
+  { to: '/contato',       label: 'Contato'         },
 ]
 
 export default function Header() {
@@ -62,7 +63,7 @@ export default function Header() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
 
           {/* Logo */}
           <Link
@@ -70,21 +71,25 @@ export default function Header() {
             className="flex items-center gap-3 tap-target group"
             aria-label="Tempo de Aprender — Página inicial"
           >
-            <span className={[
-              'w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0 shadow-sm transition-colors duration-300',
-              transparent ? 'bg-white/20 backdrop-blur-sm' : 'bg-brand-sky',
-            ].join(' ')}>
-              <span className="font-display font-extrabold text-white text-base" aria-hidden="true">T</span>
-            </span>
-            <span className={[
-              'font-display font-bold text-lg leading-tight transition-colors duration-300',
-              transparent ? 'text-white' : 'text-brand-navy',
-            ].join(' ')}>
-              Tempo de<br />
-              <span className={transparent ? 'text-brand-sky' : 'text-brand-sky-mid'}>
-                Aprender
+            <SmilingClock className="w-10 h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105" />
+            <div className="flex flex-col select-none leading-none">
+              <span className="text-[9px] tracking-[0.25em] font-extrabold text-brand-navy/80">
+                ESCOLA
               </span>
-            </span>
+              <span className="text-xs font-black tracking-wide text-brand-navy">
+                TEMPO DE
+              </span>
+              <span className="text-sm font-black tracking-wider flex">
+                <span className="text-brand-red">A</span>
+                <span className="text-brand-green">P</span>
+                <span className="text-brand-yellow">R</span>
+                <span className="text-brand-sky">E</span>
+                <span className="text-brand-red">N</span>
+                <span className="text-brand-green">D</span>
+                <span className="text-brand-yellow">E</span>
+                <span className="text-brand-sky">R</span>
+              </span>
+            </div>
           </Link>
 
           {/* Nav desktop */}
@@ -96,23 +101,20 @@ export default function Header() {
                   key={to}
                   to={to}
                   className={[
-                    'tap-target px-4 flex items-center text-sm font-medium transition-colors duration-200 rounded relative group',
-                    transparent
-                      ? 'text-white/80 hover:text-white'
-                      : isActive
-                        ? 'text-brand-navy'
-                        : 'text-brand-gray-mid hover:text-brand-navy',
+                    'tap-target px-3 flex items-center text-xs font-black uppercase tracking-wider transition-colors duration-200 rounded relative group',
+                    isActive
+                      ? 'text-brand-navy'
+                      : 'text-brand-navy/80 hover:text-brand-sky',
                   ].join(' ')}
                   aria-current={isActive ? 'page' : undefined}
                 >
                   {label}
-                  {/* Underline deslizante */}
+                  {/* Linha hover animada e elegante */}
                   <span
                     aria-hidden="true"
                     className={[
-                      'absolute bottom-2 left-4 right-4 h-0.5 rounded-full transition-all duration-300 origin-left',
-                      transparent ? 'bg-white' : 'bg-brand-sky',
-                      isActive ? 'scale-x-100 opacity-100' : 'scale-x-0 opacity-0 group-hover:scale-x-100 group-hover:opacity-60',
+                      'absolute bottom-3 left-3 right-3 h-0.5 rounded-full transition-all duration-300 origin-left scale-x-0 group-hover:scale-x-100',
+                      isActive ? 'scale-x-100 bg-brand-sky opacity-100' : 'bg-brand-sky/60 opacity-0 group-hover:opacity-100',
                     ].join(' ')}
                   />
                 </Link>
@@ -120,36 +122,28 @@ export default function Header() {
             })}
           </nav>
 
-          {/* CTA desktop — destaque principal */}
+          {/* CTA desktop — FALE CONOSCO com coração */}
           <Link
             to="/contato"
             className={[
-              'hidden md:flex tap-target items-center gap-2 px-6 rounded-xl font-display font-bold text-sm transition-all duration-300 relative overflow-hidden group',
+              'hidden md:flex tap-target items-center gap-2 px-5 py-2.5 rounded-full font-display font-bold text-xs uppercase tracking-wider transition-all duration-300 shadow-md hover:shadow-lg',
               transparent
-                ? 'bg-brand-sky text-white hover:bg-brand-sky-mid shadow-lg shadow-brand-sky/30'
-                : 'bg-gradient-to-r from-brand-sky to-brand-sky-mid text-white hover:from-brand-sky-mid hover:to-brand-navy-light shadow-md shadow-brand-sky/25 hover:shadow-lg hover:shadow-brand-sky/40',
+                ? 'bg-brand-sky text-white hover:bg-brand-navy'
+                : 'bg-brand-sky text-white hover:bg-brand-navy',
             ].join(' ')}
-            aria-label="Faça sua matrícula"
+            aria-label="Fale conosco"
           >
-            {/* Shimmer effect */}
-            <span
-              aria-hidden="true"
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-out"
-            />
-            <span className="relative">Matricule-se</span>
-            <svg className="relative w-4 h-4 transition-transform duration-200 group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            <svg className="w-4 h-4 stroke-current fill-none" strokeWidth={2.5} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
+            <span className="relative">Fale Conosco</span>
           </Link>
 
           {/* Botão menu mobile */}
           <button
             type="button"
             onClick={() => setMenuOpen(v => !v)}
-            className={[
-              'md:hidden tap-target flex items-center justify-center rounded transition-colors duration-300',
-              transparent ? 'text-white' : 'text-brand-navy',
-            ].join(' ')}
+            className="md:hidden tap-target flex items-center justify-center rounded text-brand-navy"
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
             aria-label={menuOpen ? 'Fechar menu' : 'Abrir menu'}
@@ -166,7 +160,7 @@ export default function Header() {
         aria-label="Menu móvel"
         className={[
           'md:hidden overflow-hidden transition-all duration-300 ease-in-out',
-          menuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0',
+          menuOpen ? 'max-h-[450px] opacity-100' : 'max-h-0 opacity-0',
           'bg-white/95 backdrop-blur-md border-t border-brand-sky-light',
         ].join(' ')}
       >
@@ -178,8 +172,8 @@ export default function Header() {
                 <Link
                   to={to}
                   className={[
-                    'tap-target flex items-center px-2 text-sm font-medium transition-colors rounded',
-                    isActive ? 'text-brand-navy font-bold' : 'text-brand-gray-mid hover:text-brand-navy',
+                    'tap-target flex items-center px-2 text-sm font-bold uppercase tracking-wider transition-colors rounded',
+                    isActive ? 'text-brand-navy' : 'text-brand-navy/70 hover:text-brand-navy',
                   ].join(' ')}
                   aria-current={isActive ? 'page' : undefined}
                 >
@@ -199,12 +193,12 @@ export default function Header() {
           <li>
             <Link
               to="/contato"
-              className="tap-target mt-2 flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-brand-sky to-brand-sky-mid text-white font-display font-bold text-sm shadow-md hover:shadow-lg transition-all"
+              className="tap-target mt-2 flex items-center justify-center gap-2 rounded-full bg-brand-sky text-white font-display font-bold text-xs uppercase tracking-wider shadow-md hover:shadow-lg transition-all"
             >
-              Matricule-se
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              <svg className="w-4 h-4 stroke-current fill-none" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
+              Fale Conosco
             </Link>
           </li>
         </ul>

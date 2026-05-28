@@ -8,26 +8,31 @@ export default {
     extend: {
       colors: {
         brand: {
-          /* Azul claro — PRIMÁRIO (corpo do uniforme) */
-          sky:        '#5DADE2',
-          'sky-mid':  '#2471A3',
-          'sky-light':'#D6EAF8',
+          /* Azul claro — PRIMÁRIO (corpo do uniforme e fundos suaves) */
+          sky:        '#0077FF',
+          'sky-mid':  '#0077FF',
+          'sky-light':'#E3F2FD',
           'sky-pale': '#EBF5FB',
 
           /* Azul escuro — SECUNDÁRIO */
-          navy:        '#0D3B8C',
-          'navy-mid':  '#154BA8',
-          'navy-light':'#1A5DC8',
+          navy:        '#1B52AE',
+          'navy-mid':  '#2C6DF5',
+          'navy-light':'#4C85F5',
 
-          /* Verde — detalhe (listras do uniforme) */
-          green:        '#1E7E34',
+          /* Verde — detalhe (listras do uniforme e lápis) */
+          green:        '#2BB673',
           'green-mid':  '#28A745',
           'green-light':'#D4EDDA',
 
-          /* Laranja — detalhe (listras do uniforme) */
-          orange:        '#A84800',
+          /* Laranja — detalhe (listras do uniforme e alegria) */
+          orange:        '#FFB800',
           'orange-mid':  '#E96A00',
           'orange-light':'#FDE8D0',
+
+          /* Acentos da Imagem */
+          red:          '#FF5E7E',
+          yellow:       '#FFB800',
+          'blue-accent':'#3282F6',
 
           /* Neutros */
           white:    '#FFFFFF',
@@ -38,7 +43,8 @@ export default {
       },
       fontFamily: {
         sans:    ['Inter', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'sans-serif'],
+        display: ['Fredoka', 'sans-serif'],
+        handwritten: ['Caveat', 'cursive'],
       },
       gridTemplateColumns: {
         bento: 'repeat(4, 1fr)',

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { IconPhone, IconMail, IconPin } from './icons'
+import SmilingClock from './SmilingClock'
 
 interface NavSection { title: string; links: { label: string; to: string }[] }
 interface SocialLink { label: string; href: string; svgPath: string }
@@ -41,13 +42,26 @@ export default function Footer() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
           {/* Identidade */}
           <div className="lg:col-span-1">
-            <Link to="/" className="inline-flex items-center gap-3 tap-target" aria-label="Tempo de Aprender — Voltar ao início">
-              <span className="w-9 h-9 rounded-xl bg-brand-sky-mid flex items-center justify-center flex-shrink-0">
-                <span className="font-display font-extrabold text-white text-base" aria-hidden="true">T</span>
-              </span>
-              <span className="font-display font-bold text-lg leading-tight">
-                Tempo de<br /><span className="text-brand-sky">Aprender</span>
-              </span>
+            <Link to="/" className="inline-flex items-center gap-3 tap-target group" aria-label="Tempo de Aprender — Voltar ao início">
+              <SmilingClock className="w-10 h-10 flex-shrink-0 transition-transform duration-300 group-hover:scale-105" />
+              <div className="flex flex-col select-none leading-none text-left">
+                <span className="text-[9px] tracking-[0.25em] font-extrabold text-white/80">
+                  ESCOLA
+                </span>
+                <span className="text-xs font-black tracking-wide text-white">
+                  TEMPO DE
+                </span>
+                <span className="text-sm font-black tracking-wider flex">
+                  <span className="text-brand-red">A</span>
+                  <span className="text-brand-green">P</span>
+                  <span className="text-brand-yellow">R</span>
+                  <span className="text-brand-sky">E</span>
+                  <span className="text-brand-red">N</span>
+                  <span className="text-brand-green">D</span>
+                  <span className="text-brand-yellow">E</span>
+                  <span className="text-brand-sky">R</span>
+                </span>
+              </div>
             </Link>
             <p className="mt-4 text-sm text-white/70 leading-relaxed">Educando com amor em Escada-PE há mais de 20 anos. Educação Infantil e Fundamental I.</p>
             <div className="mt-6 flex gap-2" aria-label="Redes sociais">

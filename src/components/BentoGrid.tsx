@@ -65,7 +65,7 @@ export default function BentoGrid({ compact = false }: BentoGridProps) {
   const [gridRef, gridVisible, staggerDelay] = useStaggerReveal<HTMLDivElement>({ threshold: 0.08 })
 
   return (
-    <section id="diferenciais" aria-labelledby="bento-heading" className="py-24 bg-brand-gray">
+    <section id="diferenciais" aria-labelledby="bento-heading" className="py-24 bg-brand-gray border-b border-brand-sky-light/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
           ref={headingRef}
