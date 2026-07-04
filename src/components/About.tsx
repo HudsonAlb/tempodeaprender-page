@@ -5,9 +5,9 @@ interface Pillar { number: string; color: string; title: string; body: string }
 interface Photo { src: string; alt: string; caption: string; span: string; height: string }
 
 const PILLARS: Pillar[] = [
-  { number: '01', color: 'text-brand-sky-mid', title: 'Missão', body: 'Proporcionar educação de excelência com amor, criatividade e compromisso com o desenvolvimento integral de cada criança em Escada-PE.' },
-  { number: '02', color: 'text-brand-green', title: 'Visão', body: 'Ser referência regional por oferecer um ambiente seguro, inclusivo e estimulante, onde cada aluno descobre seu potencial.' },
-  { number: '03', color: 'text-brand-orange', title: 'Valores', body: 'Amor, respeito, alegria, inclusão e comprometimento com as famílias que confiam a nós seus filhos.' },
+  { number: '01', color: 'text-brand-sky-mid', title: 'Missão', body: 'Proporcionar uma educação humanizada e de excelência, estimulando a criatividade, o pensamento crítico e a formação de valores éticos para o desenvolvimento integral de cada criança.' },
+  { number: '02', color: 'text-brand-green', title: 'Visão', body: 'Ser a escola referência na região em inovação pedagógica e acolhimento, reconhecida pela formação de cidadãos confiantes, autônomos e empáticos.' },
+  { number: '03', color: 'text-brand-orange', title: 'Valores', body: 'Afeto, respeito à diversidade, integridade, cooperação e o compromisso inabalável com o futuro das nossas crianças.' },
 ]
 
 const PHOTOS: Photo[] = [
@@ -66,10 +66,9 @@ export default function About() {
               Mais de 20 anos educando com amor em Escada-PE
             </h2>
             <p className="mt-5 text-brand-gray-mid leading-relaxed text-base">
-              A Escola Tempo de Aprender nasceu do sonho de oferecer educação de qualidade,
-              acessível e transformadora para a Educação Infantil e o Ensino Fundamental I.
-              Hoje somos referência em Escada-PE, com metodologia ativa e foco no
-              desenvolvimento humano integral.
+              A Escola Tempo de Aprender nasceu do sonho de oferecer uma educação de qualidade,
+              onde o afeto e a ciência caminham juntos na Educação Infantil e no Ensino Fundamental I.
+              Em Escada-PE, consolidamos um espaço onde cada vivência é uma oportunidade de crescimento lúdico e cognitivo.
             </p>
           </div>
 

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 import { useState } from 'react'
 import { IconWhatsApp, IconInstagram, IconCheck } from './icons'
 import { useReveal } from '@/hooks/useReveal'
+import { IllustrationStar, IllustrationPaperPlane, IllustrationScribble } from './Illustrations'
 
 const SERIES: string[] = ['Educação Infantil', '1º ao 5º ano (Fundamental I)']
 
@@ -48,15 +49,24 @@ export default function ContactForm() {
         {/* Sidebar */}
         <div
           ref={infoRef}
-          className={`reveal ${infoVisible ? 'visible' : ''}`}
+          className={`reveal ${infoVisible ? 'visible' : ''} relative`}
         >
+          <div aria-hidden="true" className="absolute -top-10 -left-6 text-brand-yellow/30 w-14 h-14 pointer-events-none">
+            <IllustrationStar className="w-full h-full animate-pulse" />
+          </div>
+          <div aria-hidden="true" className="absolute bottom-1/3 -right-4 text-brand-sky/20 w-12 h-12 pointer-events-none">
+            <IllustrationPaperPlane className="w-full h-full rotate-12" />
+          </div>
+
           <div className="reveal-left">
-            <span className="text-xs font-display font-bold uppercase tracking-widest text-brand-sky-mid">Fale conosco</span>
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-display font-bold uppercase tracking-wide bg-brand-orange-mid mb-3">
+              Campanha de Meio de Ano
+            </span>
             <h2 id="contact-heading" className="mt-2 font-display font-extrabold text-3xl sm:text-4xl text-brand-navy">
-              Matrículas abertas para 2026
+              Matrículas Abertas para o 2º Semestre!
             </h2>
             <p className="mt-4 text-brand-gray-mid leading-relaxed">
-              Entre em contato pelo formulário, WhatsApp ou Instagram. Nossa equipe responde em até 1 dia útil.
+              Garanta uma educação de excelência, cheia de amor, descobertas e aprendizado prático para seu filho. Preencha o formulário ao lado ou fale conosco diretamente nas redes sociais!
             </p>
           </div>
 
@@ -99,9 +109,17 @@ export default function ContactForm() {
         {/* Form */}
         <div
           ref={formRef}
-          className={`reveal ${formVisible ? 'visible' : ''}`}
+          className={`reveal ${formVisible ? 'visible' : ''} relative`}
         >
-          <div className="reveal-right">
+          <div aria-hidden="true" className="absolute -bottom-8 -right-6 text-brand-green/20 w-14 h-14 pointer-events-none">
+            <IllustrationScribble className="w-full h-full" />
+          </div>
+
+          <div className="reveal-right bg-brand-sky-pale/60 p-6 sm:p-8 rounded-3xl border-2 border-brand-sky-light shadow-sm">
+            <div className="mb-6">
+              <h3 className="font-display font-extrabold text-xl text-brand-navy">Formulário de Matrícula</h3>
+              <p className="text-xs text-brand-gray-mid mt-1">Preencha com seus dados para solicitar o contato da secretaria.</p>
+            </div>
             {sent ? (
               <div
                 role="alert"
@@ -175,9 +193,9 @@ export default function ContactForm() {
                 </Field>
                 <button
                   type="submit"
-                  className="tap-target w-full rounded-xl bg-brand-navy text-white font-display font-bold text-base hover:bg-brand-navy-light transition-colors shadow-lg shadow-brand-navy/25"
+                  className="tap-target w-full rounded-xl bg-brand-sky-mid text-white font-display font-bold text-base hover:bg-brand-navy transition-all hover:scale-[1.02] shadow-lg shadow-brand-sky-mid/25"
                 >
-                  Solicitar informações
+                  Garantir Minha Vaga no 2º Semestre
                 </button>
                 <p className="text-xs text-brand-gray-mid text-center">
                   Seus dados estão protegidos conforme a LGPD.

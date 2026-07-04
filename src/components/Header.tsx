@@ -9,11 +9,11 @@ interface NavLink {
 }
 
 const NAV_LINKS: NavLink[] = [
-  { to: '/',              label: 'A Escola'        },
-  { to: '/sobre',         label: 'Proposta Pedagógica' },
-  { to: '/equipe',        label: 'Turmas'          },
-  { to: '/diferenciais',  label: 'Galeria'         },
-  { to: '/depoimentos',   label: 'Notícias'        },
+  { to: '/',              label: 'Início'        },
+  { to: '/sobre',         label: 'Sobre Nós' },
+  { to: '/equipe',        label: 'Equipe'          },
+  { to: '/diferenciais',  label: 'Diferenciais'         },
+  { to: '/depoimentos',   label: 'Depoimentos'        },
   { to: '/contato',       label: 'Contato'         },
 ]
 
@@ -122,7 +122,7 @@ export default function Header() {
             })}
           </nav>
 
-          {/* CTA desktop — FALE CONOSCO com coração */}
+          {/* CTA desktop — MATRICULE-SE JÁ com coração */}
           <Link
             to="/contato"
             className={[
@@ -131,12 +131,12 @@ export default function Header() {
                 ? 'bg-brand-sky text-white hover:bg-brand-navy'
                 : 'bg-brand-sky text-white hover:bg-brand-navy',
             ].join(' ')}
-            aria-label="Fale conosco"
+            aria-label="Matricule-se já"
           >
             <svg className="w-4 h-4 stroke-current fill-none" strokeWidth={2.5} viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
             </svg>
-            <span className="relative">Fale Conosco</span>
+            <span className="relative">Matricule-se Já</span>
           </Link>
 
           {/* Botão menu mobile */}
@@ -198,7 +198,7 @@ export default function Header() {
               <svg className="w-4 h-4 stroke-current fill-none" strokeWidth={2.5} viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
               </svg>
-              Fale Conosco
+              Matricule-se Já
             </Link>
           </li>
         </ul>

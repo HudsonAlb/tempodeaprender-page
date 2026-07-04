@@ -27,25 +27,25 @@ const THEMES: Record<ThemeType, ThemeConfig> = {
     title: <>Garanta a vaga antes<br />do apito final!</>,
     body: (
       <>
-        2026 é o ano da <strong className="text-brand-navy">Copa do Mundo</strong> — e o melhor momento para garantir o futuro do seu filho. Matrículas abertas na <strong className="text-brand-navy">Tempo de Aprender</strong>!
+        2026 é ano de grandes conquistas! E a maior delas é assegurar uma educação transformadora para quem você ama. As matrículas na <strong className="text-brand-navy">Tempo de Aprender</strong> estão abertas, mas as vagas são limitadas!
       </>
     ),
-    buttonText: 'Garantir minha vaga'
+    buttonText: 'Garantir vaga'
   },
   matriculas: {
     id: 'matriculas',
-    imageSrc: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&h=440&q=85&auto=format&fit=crop',
-    imageAlt: 'Crianças estudando e sorrindo',
+    imageSrc: '/matriculas_meio_ano.png',
+    imageAlt: 'Ilustração infantil alegre para abertura de matrículas',
     badgeIcon: IconBook,
-    badgeText: 'Matrículas Abertas',
-    badgeColor: 'bg-brand-sky-mid',
-    title: <>O futuro começa<br />agora mesmo!</>,
+    badgeText: 'Campanha de Meio de Ano',
+    badgeColor: 'bg-brand-orange-mid',
+    title: <>Matrículas Abertas<br />de Meio de Ano!</>,
     body: (
       <>
-        Garanta o melhor ensino para o seu filho com metodologia ativa, ambiente seguro e professores que ensinam com muito amor.
+        O segundo semestre está chegando com novas descobertas! Garanta o melhor ensino para o seu filho com metodologia lúdica, afeto e ambiente seguro na <strong className="text-brand-orange">Tempo de Aprender</strong>.
       </>
     ),
-    buttonText: 'Fazer matrícula'
+    buttonText: 'Fazer Matrícula Já'
   },
   'festa-junina': {
     id: 'festa-junina',
@@ -80,7 +80,7 @@ const THEMES: Record<ThemeType, ThemeConfig> = {
 }
 
 // Alterar o tema ativo aqui:
-const ACTIVE_THEME: ThemeType = 'copa'
+const ACTIVE_THEME: ThemeType = 'matriculas'
 
 export default function WelcomeModal() {
   const [rendered, setRendered] = useState(false)
@@ -148,80 +148,70 @@ export default function WelcomeModal() {
         aria-modal="true"
         aria-labelledby="modal-title"
         tabIndex={-1}
-        className="relative z-10 w-full max-w-md rounded-3xl overflow-hidden shadow-2xl outline-none"
+        className="relative z-10 w-full max-w-md rounded-3xl overflow-hidden shadow-2xl outline-none min-h-[480px] flex flex-col justify-end p-6 sm:p-8"
         style={{
           transform: visible ? 'scale(1) translateY(0)' : 'scale(0.94) translateY(24px)',
           transition: 'transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
         }}
       >
+        {/* Imagem de Fundo Inteira */}
+        <img
+          src={theme.imageSrc}
+          alt={theme.imageAlt}
+          className="absolute inset-0 w-full h-full object-cover"
+          loading="eager"
+        />
+        {/* Gradiente sobre toda a imagem para dar contraste ao texto */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-gradient-to-t from-brand-navy via-brand-navy/70 to-black/35"
+        />
+
         {/* Botão fechar */}
         <button
           type="button"
           onClick={dismiss}
           aria-label="Fechar banner"
-          className="absolute top-3 right-3 z-20 tap-target w-9 h-9 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+          className="absolute top-4 right-4 z-20 tap-target w-11 h-11 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
         >
           <IconClose className="w-4 h-4" />
         </button>
 
-        {/* Imagem do tema */}
-        <div className="relative h-56 overflow-hidden">
-          <img
-            src={theme.imageSrc}
-            alt={theme.imageAlt}
-            className="w-full h-full object-cover"
-            loading="eager"
-          />
-          {/* Gradiente sobre a imagem */}
-          <div
-            aria-hidden="true"
-            className="absolute inset-0 bg-gradient-to-t from-brand-navy/92 via-brand-navy/35 to-transparent"
-          />
-
-          {/* Badge + título sobre a imagem */}
-          <div className="absolute bottom-5 left-5 right-12">
+        {/* Conteúdo sobreposto */}
+        <div className="relative z-10 flex flex-col gap-4">
+          <div>
             <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-white text-xs font-display font-bold uppercase tracking-wide ${theme.badgeColor}`}>
               <BadgeIcon className="w-3.5 h-3.5" aria-hidden="true" />
               {theme.badgeText}
             </span>
             <h2
               id="modal-title"
-              className="mt-2 font-display font-extrabold text-xl sm:text-2xl text-white leading-snug"
+              className="mt-3 font-display font-extrabold text-2xl sm:text-3xl text-white leading-tight"
             >
               {theme.title}
             </h2>
           </div>
-        </div>
 
-        {/* Corpo */}
-        <div className="bg-white px-6 pt-5 pb-6">
-          {/* Faixa do uniforme decorativa */}
-          <div aria-hidden="true" className="flex h-0.5 mb-5 -mx-6">
+          {/* Faixa decorativa lúdica */}
+          <div aria-hidden="true" className="flex h-0.5 rounded-full overflow-hidden w-full">
             <span className="flex-[3] bg-brand-sky" />
-            <span className="flex-[2] bg-brand-navy" />
+            <span className="flex-[2] bg-brand-navy-light" />
             <span className="flex-[1] bg-brand-green" />
             <span className="flex-[1] bg-brand-orange" />
           </div>
 
-          <p className="text-sm text-brand-gray-mid leading-relaxed">
+          <p className="text-sm text-white/95 leading-relaxed font-medium">
             {theme.body}
           </p>
 
-          <div className="mt-5 flex flex-col gap-2">
+          <div className="mt-2">
             <Link
               to="/contato"
               onClick={dismiss}
-              className="tap-target flex items-center justify-center gap-2 px-6 rounded-xl bg-brand-sky-mid text-white font-display font-bold text-sm hover:bg-brand-navy transition-colors shadow-md"
+              className="tap-target flex items-center justify-center gap-2 px-6 rounded-xl bg-brand-sky-mid text-white font-display font-bold text-base hover:bg-brand-navy-light transition-all hover:scale-[1.02] shadow-lg shadow-brand-sky-mid/30"
             >
               {theme.buttonText} <IconArrowRight className="w-4 h-4" />
             </Link>
-            <button
-              type="button"
-              onClick={dismiss}
-              className="tap-target text-sm text-brand-gray-mid hover:text-brand-navy transition-colors font-display"
-            >
-              Agora não
-            </button>
           </div>
         </div>
       </div>

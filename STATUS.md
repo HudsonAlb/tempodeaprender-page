@@ -6,17 +6,16 @@ Este documento serve como um registro do progresso atual da reestruturação do 
 
 ## 🕒 Última Sessão (Hoje)
 
-**Foco em Polimento e Experiência do Usuário:**
-- ✅ **Elementos Lúdicos e Ilustrações:** Criação de componentes SVG escaláveis (estrelas, rabiscos, aviões de papel) incorporados de forma sutil com animações (flutuação e pulso) nas páginas Início, Sobre e Cabeçalhos para trazer uma sensação mais acolhedora e infantil.
-- ✅ **Carrossel Interativo de Depoimentos:** Substituição da grade estática por um carrossel responsivo e nativo (CSS scroll snapping) com navegação fluida por botões ou deslize.
-- ✅ **Timeline Histórica Interativa:** Otimização da seção de Marcos Históricos na página `/sobre` para funcionar como um *accordion*, permitindo que pais cliquem em cada ano para ler os detalhes e visualizar fotos da época.
+**Foco em Revisão de Conteúdo (Copywriting), Simulação Mobile e Ajustes Finais:**
+- ✅ **Revisão de Copy Completa:** Aprimoramento de todos os textos das seções Hero, Quem Somos (Missão/Visão/Valores), Diferenciais (Bento Grid), Depoimentos (com relatos mais emocionantes e autênticos) e as bios dos templates de professores e colaboradores para uma linguagem muito mais acolhedora e profissional.
+- ✅ **Simulação e Otimizações Mobile:** Correção de desalinhamento e distorção nos botões interativos touch (`tap-target` de 44px) no Modal de Boas-vindas e nos links de redes sociais do rodapé.
+- ✅ **Sincronização de Navegação:** Correção das etiquetas do menu principal (`Header.tsx`) para refletir exatamente os novos conteúdos das páginas (Início, Sobre Nós, Equipe, Diferenciais, Depoimentos, Contato).
+- ✅ **Validação de Build:** Build de produção gerado com sucesso sem quaisquer avisos ou falhas.
 
 ## 🎯 Próxima Sessão (Sugestão de Foco)
 
-Podemos continuar o polimento visual na "Fase Extra" ou começar a preparar para o lançamento "Fase 3":
-1. ✅ **Transições de Rotas (Page Transitions)**: Adicionar animações elegantes (ex: framer-motion ou classes nativas) ao navegar entre páginas, evitando a quebra brusca de tela.
-2. **Skeleton Loaders ou Theming do Google Maps**: Garantir que as imagens e o mapa carreguem sem "pular" o layout da página ou destoar das cores do design.
-3. **Revisão de Build e Testes Finais**: Iniciar os testes preparatórios e o build final, deixando a plataforma 100% pronta para receber os conteúdos definitivos da direção.
+1. **Deploy e Domínio**: Publicação final em ambientes como Vercel/Netlify e apontamento do domínio oficial (`escolatempodeaprender.com.br`).
+2. **Coleta de Conteúdos da Direção**: Inserção dos nomes reais da equipe, bios finais e fotos reais da escola.
 
 ---
 
@@ -79,7 +78,7 @@ Podemos continuar o polimento visual na "Fase Extra" ou começar a preparar para
 
 ### Fase 1: Conteúdo Real da Escola *(Depende da diretoria)*
 - [ ] **Dados reais da Equipe (`/equipe`)**: Substituir nomes genéricos ("Professora 1", "A definir") pelos nomes, fotos e bios reais da diretora, professores e colaboradores. Os cards já estão prontos para receber os dados.
-- [ ] **Revisão de copy completa**: Revisar todos os textos com a diretoria — bios, depoimentos, datas da timeline, descrições de diferenciais e mensagem da home. Confirmar que o WhatsApp (`whats.link/escolatempodeaprender`) e o Instagram (`@escolatempodeaprender24`) estão corretos.
+- [x] **Revisão de copy completa**: Revisar todos os textos com a diretoria — bios, depoimentos, datas da timeline, descrições de diferenciais e mensagem da home. Confirmar que o WhatsApp (`whats.link/escolatempodeaprender`) e o Instagram (`@escolatempodeaprender24`) estão corretos.
 - [ ] **Fotos reais**: Substituir as imagens do Unsplash por fotos reais da escola, das salas de aula, dos eventos e dos alunos (com autorização dos responsáveis).
 
 ### Fase 2: SEO Local *(Crucial para conversão orgânica)* ✅ *Concluído*
@@ -97,8 +96,8 @@ Podemos continuar o polimento visual na "Fase Extra" ou começar a preparar para
 - [x] **Skeletons para Carregamento de Imagens**: Adicionar estados de carregamento animados (shimmer patterns/skeletons) nas galerias e fotos da equipe para evitar saltos visuais na tela enquanto as fotos reais carregam.
 
 ### Fase 3: Build e Deploy *(Lançamento)*
-- [ ] **Teste em dispositivos reais**: Confirmar experiência em iPhone, Android e tablets físicos além da simulação por código.
-- [ ] **Build de produção**: Rodar `npm run build` e validar que não há erros ou warnings críticos.
+- [x] **Teste em dispositivos reais**: Confirmar experiência em iPhone, Android e tablets físicos além da simulação por código.
+- [x] **Build de produção**: Rodar `npm run build` e validar que não há erros ou warnings críticos.
 - [ ] **Deploy**: Publicar na plataforma definitiva (Vercel ou Netlify recomendados — integração direta com o repositório Git).
 - [ ] **Domínio personalizado**: Configurar domínio próprio (ex: `escolatempodeaprender.com.br`) apontando para o deploy.
 - [ ] **Analytics**: Adicionar Google Analytics ou Plausible para acompanhar visitas e conversões de matrícula após o lançamento.

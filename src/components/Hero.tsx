@@ -14,8 +14,8 @@ const FEATURES: Feature[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
       </svg>
     ),
-    title: 'Ensino com Amor',
-    description: 'Cuidamos de cada aluno com carinho e dedicação.',
+    title: 'Ensino com Afeto',
+    description: 'Cuidamos de cada aluno com atenção individualizada e carinho.',
   },
   {
     icon: (
@@ -23,8 +23,8 @@ const FEATURES: Feature[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.907c.961 0 1.36 1.246.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.773-.564-.375-1.81.588-1.81h4.907a1 1 0 00.95-.69l1.519-4.674z" />
       </svg>
     ),
-    title: 'Aprendizagem que Inspira',
-    description: 'Propostas que estimulam a curiosidade, a criatividade e o conhecimento.',
+    title: 'Metodologias Ativas',
+    description: 'Propostas lúdicas e práticas que estimulam a criatividade e a descoberta.',
   },
   {
     icon: (
@@ -33,8 +33,8 @@ const FEATURES: Feature[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M9 10h.01M15 10h.01M9 15a3.5 3.5 0 006 0" />
       </svg>
     ),
-    title: 'Ambiente Seguro e Acolhedor',
-    description: 'Um espaço onde as crianças se sentem felizes e valorizadas.',
+    title: 'Ambiente Acolhedor',
+    description: 'Infraestrutura segura para as crianças se expressarem felizes e sem pressa.',
   },
   {
     icon: (
@@ -42,8 +42,8 @@ const FEATURES: Feature[] = [
         <path strokeLinecap="round" strokeLinejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
       </svg>
     ),
-    title: 'Preparando para o Futuro',
-    description: 'Formamos crianças confiantes, éticas e protagonistas.',
+    title: 'Formação Humana',
+    description: 'Desenvolvemos a autonomia, a empatia e o protagonismo infantil.',
   },
 ]
 
@@ -138,8 +138,9 @@ export default function Hero() {
                 ].join(' ')}
                 style={{ transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)', transitionDelay: '350ms' }}
               >
-                Educação Infantil e Ensino Fundamental I com metodologia ativa,
-                ambiente acolhedor e professores que fazem a diferença.
+                Educação Infantil e Ensino Fundamental I com foco em metodologias ativas,
+                desenvolvimento socioemocional e um ambiente acolhedor onde cada criança
+                é protagonista da sua jornada.
               </p>
 
               {/* Lista de destaques */}

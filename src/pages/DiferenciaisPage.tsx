@@ -6,9 +6,9 @@ import { useReveal, useStaggerReveal } from '@/hooks/useReveal'
 import { IconArrowRight, IconBook, IconUsers, IconGraduation } from '@/components/icons'
 
 const HIGHLIGHTS = [
-  { icon: IconBook, title: 'Metodologia ativa', text: 'Aprendizado por experience, ludicidade e experimentação — não apenas teoria.', accent: 'text-brand-sky-mid' },
-  { icon: IconUsers, title: 'Comunidade integrada', text: 'Família e escola parceiras no desenvolvimento de cada criança, com canal aberto e transparente.', accent: 'text-brand-green' },
-  { icon: IconGraduation, title: 'Excelência acadêmica', text: 'Base sólida na Educação Infantil e no Fundamental I que prepara para os próximos desafios.', accent: 'text-brand-orange' },
+  { icon: IconBook, title: 'Metodologia ativa', text: 'Aprendizado por vivência, ludicidade e experimentação prática — estimulando o aprender a aprender.', accent: 'text-brand-sky-mid' },
+  { icon: IconUsers, title: 'Comunidade integrada', text: 'Parceria real entre família e escola, com diálogo aberto e eventos participativos regulares.', accent: 'text-brand-green' },
+  { icon: IconGraduation, title: 'Formação para a vida', text: 'Base cognitiva e socioemocional sólida que prepara os alunos para os desafios do futuro.', accent: 'text-brand-orange' },
 ]
 
 export default function DiferenciaisPage() {

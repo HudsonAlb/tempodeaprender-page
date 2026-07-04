@@ -66,7 +66,7 @@ export default function Footer() {
             <p className="mt-4 text-sm text-white/70 leading-relaxed">Educando com amor em Escada-PE há mais de 20 anos. Educação Infantil e Fundamental I.</p>
             <div className="mt-6 flex gap-2" aria-label="Redes sociais">
               {SOCIAL_LINKS.map(({ label, href, svgPath }) => (
-                <a key={label} href={href} className="tap-target w-10 h-10 flex items-center justify-center rounded-lg bg-white/10 hover:bg-brand-sky/30 transition-colors" aria-label={`Nos siga no ${label}`} target="_blank" rel="noopener noreferrer">
+                <a key={label} href={href} className="tap-target w-11 h-11 flex items-center justify-center rounded-lg bg-white/10 hover:bg-brand-sky/30 transition-colors" aria-label={`Nos siga no ${label}`} target="_blank" rel="noopener noreferrer">
                   <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" focusable="false"><path d={svgPath} /></svg>
                 </a>
               ))}

@@ -12,14 +12,14 @@ export default function ContatoPage() {
   return (
     <>
       <SEO
-        title="Contato e Matrículas — Escola Tempo de Aprender em Escada, PE"
-        description="Fale conosco para agendar uma visita e fazer a matrícula fundamental ou infantil em Escada, PE. Localização, horário de atendimento e WhatsApp."
-        keywords="contato tempo de aprender, matrícula fundamental Escada, matrícula infantil Escada PE, telefone escola Escada PE, endereço escola tempo de aprender"
+        title="Matrículas de Meio de Ano abertas — Escola Tempo de Aprender"
+        description="Aproveite a campanha de matrículas de meio de ano da Escola Tempo de Aprender em Escada, PE. Garanta a vaga do seu filho para o segundo semestre com metodologia lúdica e de excelência!"
+        keywords="matricula meio de ano, matricula segundo semestre, contato tempo de aprender, matricula escola escada, escola tempo de aprender escada"
       />
       <PageHero
-        title="Fale Conosco"
-        subtitle="Tire suas dúvidas, agende uma visita ou solicite informações sobre matrículas. Estamos prontos para receber sua família!"
-        breadcrumb="Contato"
+        title="Campanha de Matrículas de Meio de Ano"
+        subtitle="O futuro do seu filho não pode esperar. Garanta uma vaga para o segundo semestre na escola mais acolhedora de Escada, PE!"
+        breadcrumb="Matrículas Meio de Ano"
       />
       <ContactForm />
 

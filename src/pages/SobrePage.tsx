@@ -20,39 +20,39 @@ interface TimelineItem {
 const TIMELINE: TimelineItem[] = [
   { 
     year: '2003', 
-    title: 'Fundação', 
-    text: 'A Escola Tempo de Aprender abre suas portas em Escada-PE com a missão de transformar vidas através da educação.', 
+    title: 'O início de um sonho', 
+    text: 'A Escola Tempo de Aprender nasce em Escada-PE com o firme compromisso de oferecer um espaço educativo baseado no afeto e no acolhimento familiar.', 
     colorBg: 'bg-brand-sky', 
     colorText: 'text-brand-sky-mid',
     photo: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&h=400&q=85&auto=format&fit=crop',
-    expandedText: 'Tudo começou em uma pequena casa com apenas duas turmas. Desde o primeiro dia, o foco sempre foi criar um ambiente familiar, onde as crianças pudessem aprender brincando com total acolhimento e respeito ao tempo de cada uma.'
+    expandedText: 'Tudo começou com uma pequena estrutura e o ideal de acolher cada criança de forma única. Desde o primeiro dia, nosso foco foi criar um ambiente caloroso, onde os primeiros passos do aprendizado fossem permeados de descobertas lúdicas, segurança e proximidade com as famílias.'
   },
   { 
     year: '2010', 
-    title: 'Expansão', 
-    text: 'Ampliação do espaço físico e adoção de metodologia ativa, incorporando atividades lúdicas ao currículo.', 
+    title: 'Estrutura e inovação', 
+    text: 'Ampliamos nossos espaços e integramos metodologias ativas ao currículo, transformando a aprendizagem em uma aventura dinâmica.', 
     colorBg: 'bg-brand-orange', 
     colorText: 'text-brand-orange',
     photo: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&q=85&auto=format&fit=crop',
-    expandedText: 'Construímos novas salas de aula, implementamos uma quadra e um parquinho mais amplo. O currículo foi modernizado para acompanhar as novas diretrizes da educação infantil, priorizando projetos que instigam a curiosidade científica e artística dos alunos.'
+    expandedText: 'Construímos novas salas de aula amplas, estruturamos nossa biblioteca e implementamos um espaço recreativo moderno. A inovação pedagógica entrou em cena com projetos focados na curiosidade científica, expressão artística e autonomia no Ensino Fundamental I.'
   },
   { 
     year: '2018', 
-    title: 'Inclusão', 
-    text: 'Programa de inclusão fortalecido com ações no Abril Azul e acolhimento à diversidade em todas as turmas.', 
+    title: 'Educação para todos', 
+    text: 'Fortalecemos nosso programa de inclusão e apoio especializado, garantindo que a diversidade seja acolhida e valorizada diariamente.', 
     colorBg: 'bg-brand-green', 
     colorText: 'text-brand-green',
     photo: 'https://images.unsplash.com/photo-1601339434203-130259102db6?w=800&h=400&q=85&auto=format&fit=crop',
-    expandedText: 'A Tempo de Aprender investiu pesadamente na qualificação e treinamento de seus profissionais para criar um ambiente verdadeiramente acolhedor para crianças atípicas, reforçando que somos uma escola feita para absolutamente todos.'
+    expandedText: 'A Tempo de Aprender investiu na formação continuada de seus profissionais para atender à neurodiversidade de forma integrada e humanizada. Campanhas ativas (como o Abril Azul) passaram a fazer parte do nosso DNA de inclusão.'
   },
   { 
     year: '2024', 
-    title: 'Referência regional', 
-    text: 'Reconhecida pela comunidade como escola de excelência em Escada e região, com mais de 20 anos de dedicação.', 
+    title: 'Consolidação e orgulho', 
+    text: 'Com mais de duas décadas de história, celebramos a confiança de gerações de famílias escadenses e o sucesso de nossos ex-alunos.', 
     colorBg: 'bg-brand-sky-mid', 
     colorText: 'text-brand-sky-mid',
     photo: 'https://images.unsplash.com/photo-1509062522246-3755977927d7?w=800&h=400&q=85&auto=format&fit=crop',
-    expandedText: 'Hoje, somos orgulhosamente uma referência. Continuamos celebrando cada data cultural, vibrando com o desenvolvimento de cada aluno e trabalhando de mãos dadas com os pais para construir um futuro brilhante.'
+    expandedText: 'Hoje, somos orgulhosamente uma das instituições mais tradicionais e respeitadas da região. Continuamos nos reinventando a cada dia, mas mantendo a mesma essência: acolher com amor para preparar cidadãos capazes de mudar o mundo.'
   },
 ]
 

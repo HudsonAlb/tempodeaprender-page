@@ -13,9 +13,9 @@ interface QuickStat {
 }
 
 const QUICK_STATS: QuickStat[] = [
-  { icon: IconHeart, title: 'Amor e cuidado', text: 'Cada criança é única e recebe atenção individualizada.', accent: 'text-brand-orange' },
-  { icon: IconUsers, title: 'Comunidade forte', text: 'Família e escola juntas no desenvolvimento infantil.', accent: 'text-brand-green' },
-  { icon: IconGraduation, title: 'Excelência acadêmica', text: 'Metodologia ativa que prepara para o futuro.', accent: 'text-brand-sky-mid' },
+  { icon: IconHeart, title: 'Afeto e acolhimento', text: 'Um espaço seguro e afetuoso que respeita o ritmo e a individualidade de cada criança.', accent: 'text-brand-orange' },
+  { icon: IconUsers, title: 'Parceria com as famílias', text: 'Escola e lar caminhando lado a lado para formar cidadãos conscientes e preparados.', accent: 'text-brand-green' },
+  { icon: IconGraduation, title: 'Metodologia inovadora', text: 'Aprendizado prático e estimulante que desperta a curiosidade e o gosto pelo saber.', accent: 'text-brand-sky-mid' },
 ]
 
 export default function HomePage() {

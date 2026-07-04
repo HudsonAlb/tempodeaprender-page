@@ -52,10 +52,10 @@ function ColorCard({ card }: { card: ColorCardData }) {
 }
 
 const COLOR_CARDS: ColorCardData[] = [
-  { id: 'esportes', icon: IconSport, tag: 'Esportes', title: 'Educação Física', body: 'Atividades físicas que desenvolvem coordenação motora, trabalho em equipe e hábitos saudáveis.', bg: 'bg-brand-navy', textColor: 'text-white', tagColor: 'bg-white/20 text-white', iconColor: 'text-brand-sky', span: '' },
-  { id: 'cultura', icon: IconLanguage, tag: 'Cultura \u0026 Datas', title: 'Calendário Cultural', body: 'Data Magna de PE, São João, Dia da Escola e muito mais, celebrando com toda a comunidade.', bg: 'bg-brand-orange', textColor: 'text-white', tagColor: 'bg-white/25 text-white', iconColor: 'text-white', span: '' },
-  { id: 'inclusao', icon: IconTech, tag: 'Inclusão', title: 'Escola para Todos', body: 'Comprometida com a diversidade: Abril Azul, Síndrome de Down e a diferença de cada um.', bg: 'bg-brand-sky-light', textColor: 'text-brand-navy', tagColor: 'bg-brand-sky/30 text-brand-navy', iconColor: 'text-brand-sky-mid', span: '' },
-  { id: 'ciencias', icon: IconFlask, tag: 'Ciências', title: 'Ciclo da Água e Mais', body: 'Experimentos práticos que despertam a curiosidade científica desde os primeiros anos.', bg: 'bg-white border-2 border-brand-sky-light', textColor: 'text-brand-dark', tagColor: 'bg-brand-sky-light text-brand-navy', iconColor: 'text-brand-sky-mid', span: '' },
+  { id: 'esportes', icon: IconSport, tag: 'Esportes', title: 'Mais que Movimento', body: 'Educação física que desenvolve a coordenação, o trabalho em equipe e incentiva hábitos de vida saudáveis.', bg: 'bg-brand-navy', textColor: 'text-white', tagColor: 'bg-white/20 text-white', iconColor: 'text-brand-sky', span: '' },
+  { id: 'cultura', icon: IconLanguage, tag: 'Cultura \u0026 Tradição', title: 'Nossa Identidade', body: 'Celebração ativa da cultura pernambucana e nacional, promovendo o respeito à história e tradições locais.', bg: 'bg-brand-orange', textColor: 'text-white', tagColor: 'bg-white/25 text-white', iconColor: 'text-white', span: '' },
+  { id: 'inclusao', icon: IconTech, tag: 'Inclusão', title: 'Escola para Todos', body: 'Projetos focados na empatia e no respeito à neurodiversidade, com acolhimento e suporte psicopedagógico.', bg: 'bg-brand-sky-light', textColor: 'text-brand-navy', tagColor: 'bg-brand-sky/30 text-brand-navy', iconColor: 'text-brand-sky-mid', span: '' },
+  { id: 'ciencias', icon: IconFlask, tag: 'Ciências', title: 'Pequenos Cientistas', body: 'Experimentos práticos e exploração da natureza que despertam o raciocínio lógico e a curiosidade ativa.', bg: 'bg-white border-2 border-brand-sky-light', textColor: 'text-brand-dark', tagColor: 'bg-brand-sky-light text-brand-navy', iconColor: 'text-brand-sky-mid', span: '' },
 ]
 
 interface BentoGridProps { compact?: boolean }
@@ -89,7 +89,7 @@ export default function BentoGrid({ compact = false }: BentoGridProps) {
           className={`reveal grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 ${gridVisible ? 'visible' : ''}`}
         >
           <div className="reveal-scale lg:col-span-2" style={{ transitionDelay: staggerDelay(0) }}>
-            <PhotoCard id="atividades" tag="Atividades Lúdicas" tagColor="bg-brand-sky/90 text-white" title="Aprender Brincando" body="Pescaria, atividades sensoriais e jogos pedagógicos que tornam o aprendizado uma aventura diária." textColor="text-white" imgSrc="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=900&h=400&q=85&auto=format&fit=crop" imgAlt="Criança fazendo atividade artística com guaches e materiais coloridos" span="" />
+            <PhotoCard id="atividades" tag="Atividades Lúdicas" tagColor="bg-brand-sky/90 text-white" title="Aprender Brincando" body="Vivências sensoriais e jogos pedagógicos desenhados para transformar conceitos complexos em descobertas divertidas." textColor="text-white" imgSrc="https://images.unsplash.com/photo-1596464716127-f2a82984de30?w=900&h=400&q=85&auto=format&fit=crop" imgAlt="Criança fazendo atividade artística com guaches e materiais coloridos" span="" />
           </div>
           {COLOR_CARDS.map((card, i) => (
             <div key={card.id} className="reveal-scale" style={{ transitionDelay: staggerDelay(i + 1) }}>
@@ -97,7 +97,7 @@ export default function BentoGrid({ compact = false }: BentoGridProps) {
             </div>
           ))}
           <div className="reveal-scale lg:col-span-2" style={{ transitionDelay: staggerDelay(5) }}>
-            <PhotoCard id="comunidade" tag="Comunidade" tagColor="bg-brand-green/90 text-white" title="Família na Escola" body="Canal aberto com os pais, eventos e reuniões para acompanhar de perto cada etapa do seu filho." textColor="text-white" imgSrc="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&h=400&q=85&auto=format&fit=crop" imgAlt="Professor com turma de alunos em sala de aula" span="" />
+            <PhotoCard id="comunidade" tag="Comunidade" tagColor="bg-brand-green/90 text-white" title="Família na Escola" body="Canal aberto, reuniões formativas e eventos integradores para acompanhar cada passo da jornada do seu filho." textColor="text-white" imgSrc="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=900&h=400&q=85&auto=format&fit=crop" imgAlt="Professor com turma de alunos em sala de aula" span="" />
           </div>
         </div>
       </div>
